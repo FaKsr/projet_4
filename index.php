@@ -1,6 +1,6 @@
 <?php
 
-// On charge le fichier du modèle    require('model/modele.php');
+// On charge le fichier du modèle
 require('modele2.php');
 
 // On appelle la fonction, ce qui exécute le code à l'intérieur de modele.php . On y récupère la liste des billets dans la variable $req
