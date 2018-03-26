@@ -1,38 +1,30 @@
-<?php
+<?php $title = 'Jean Forteroche, écrivain et auteur'; ?>
 
-$title = 'Mon blog d\'écrivain';
-ob_start();
+<?php ob_start(); ?>
+<h1>Un billet simple pour l'Alaska</h1>
+<p>Derniers chapitres du blog :</p>
 
-?>
-
-<h1>Blog de Jean Forteroche</h1>
-<p>Derniers chapitres du blog: </p>
 
 <?php
-while($data = $posts->fetch())
+while ($data = $posts->fetch())
 {
 ?>
     <div class="news">
         <h3>
-            <?php
-            htmlspecialchars($data['title']) ?>
-            <em>le <?php $data['creation_date_fr']?></em>
+            <?= htmlspecialchars($data['title']) ?>
+            <em>le <?= $data['creation_date_fr'] ?></em>
         </h3>
-
+        
         <p>
-            <?php nl12br(htmlspecialchars($data['content']))?>
+            <?= nl2br(htmlspecialchars($data['content'])) ?>
             <br />
-            <em><a href="index.php?action=post&amp;id<?php $data['id']?>">Commentaires</a></em>
+            <em><a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Commentaires</a></em>
         </p>
     </div>
 <?php
 }
 $posts->closeCursor();
 ?>
+<?php $content = ob_get_clean(); ?>
 
-<?php 
-$content = ob_get_clean(); 
-
-require('template.php');
-
-?>
+<?php require('template.php'); ?>

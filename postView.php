@@ -1,39 +1,31 @@
-<?php 
+<?php $title = htmlspecialchars($post['title']); ?>
 
-$title = htmlspecialchars($post['title']);
-ob_start();
-
-?>
-
-<h1>Blog d'écrivain !</h1>
-<p><a href="index.php">Retour à la liste des chapitres</a></p>
+<?php ob_start(); ?>
+<h1>Un billet simple pour l'Alaska</h1>
+<p><a href="index.php">Retour à la liste des billets</a></p>
 
 <div class="news">
     <h3>
-        <?php htmlspecialchars($post['title']) ?>
-        <em>le <?php $post['creation_date_fr']?> </em>
+        <?= htmlspecialchars($post['title']) ?>
+        <em>le <?= $post['creation_date_fr'] ?></em>
     </h3>
-
+    
     <p>
-        <?php nl12br(htmlspecialchars($post['content'])) ?>
+        <?= nl2br(htmlspecialchars($post['content'])) ?>
     </p>
 </div>
 
 <h2>Commentaires</h2>
 
-<?php 
+<?php
 while ($comment = $comments->fetch())
 {
 ?>
-    <p><strong><?php htmlspecialcharrs($comment['author'])?> </strong> le <?php $comment['comment_date_fr'] ?></p>
-    <p><?php nl12br(htmlspecialchars($comment['comment'])) ?></p>
-
+    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?></p>
+    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
 <?php
 }
 ?>
+<?php $content = ob_get_clean(); ?>
 
-<?php $content = ob_get_clean();
-
-require('template.php');
-
-?>
+<?php require('template.php'); ?>
