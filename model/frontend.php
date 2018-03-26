@@ -1,4 +1,5 @@
 <?php
+
 //Tous les chapitres
 function getPosts()
 {
@@ -18,6 +19,17 @@ function getPost($postId)
 
     return $post;
 }
+
+//Ajouter des commentaires
+function postComment($postId, $author, $comment)
+{
+    $db = dbConnect();
+    $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
+    $affectedLines = $comments->execute(array($postId, $author, $comment));
+
+    return $affectedLines;
+}
+
 
 //Commentaire selon un chapitre
 function getComments($postId)
