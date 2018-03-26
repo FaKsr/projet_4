@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <h1>Blog d'écrivain</h1>
 <p>Derniers chapitres du blog :</p>
-
+<p>Chapitre 1: l'Alaska <p>
 
 <?php
 while ($data = $posts->fetch())
