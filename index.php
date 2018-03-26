@@ -1,6 +1,6 @@
 <?php
 
-// On charge le controller
+// On charge le controller, pour que les fonctions soient en mémoire
 require('controller.php');
 
 if(isset($_GET['action']))
@@ -9,7 +9,7 @@ if(isset($_GET['action']))
     {
         if($_GET['action'] == 'listposts')
         {
-            listposts();
+            listPosts();
         }
         elseif ($_GET['action'] == 'post')
         {
