@@ -31,5 +31,6 @@ try {
 //récupère le message d'erreur transmis et affiche le message
 catch(Exception $e)
 {
-    echo 'Erreur : ' .$e->getMessage();
+    $errormessage = $e->getMessage();
+    require('view/errorView.php');
 }
