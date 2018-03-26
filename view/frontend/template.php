@@ -5,6 +5,8 @@
         <title><?= $title ?></title>
         <link href="public/css/style.css" rel="stylesheet" /> 
     </head>
+
+    
         
     <body>
         <?= $content ?>

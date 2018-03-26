@@ -1,26 +1,34 @@
 <?php
 
-require('model/frontend.php');
+//chargement des classes
+require_once('model/PostManager.php');
+require_once('model/CommentManager.php');
+
 
 function listPosts()
 {
-    $posts = getPosts();
+    $postManager = new PostManager(); //Création d'un objet
+    $posts = $postManager->getPosts(); //Appel d'une fonction de cet objet
 
     require('view/frontend/listPostsView.php');
 }
 
 function post()
 {
-    $post = getPost($_GET['id']);
-    $comments = getComments($_GET['id']);
+    $postManager = new PostManager();
+    $commentManager = new CommentManager();
+
+    $post = $postManager->getPost($_GET['id']);
+    $comments = $commentManager->getComments($_GET['id']);
 
     require('view/frontend/postView.php');
 }
 
-//Récupère les infos dont on a besoin
+//Récupère les infos dont on a besoin pour ajouter commentaires
 function addComment($postId, $author, $comment)
 {
-    $affectedLines = postComment($postId, $author, $comment);
+    $commentManager = new CommentManager();
+    $affectedLines = $commentManager-> postComment($postId, $author, $comment);
 
     if ($affectedLines === false) {
         //Erreur gérée, remontée jusqu'au bloc try du routeur
