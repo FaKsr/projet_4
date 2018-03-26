@@ -1,4 +1,5 @@
 <?php
+
 require_once("model/Manager.php");
 
 // toutes les fonctions concernant les commentaires
