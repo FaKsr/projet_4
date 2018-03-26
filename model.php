@@ -1,4 +1,5 @@
 <?php
+//Tous les chapitres
 function getPosts()
 {
     $db = dbConnect();
@@ -7,6 +8,7 @@ function getPosts()
     return $req;
 }
 
+// Chapitre selon son id
 function getPost($postId)
 {
     $db = dbConnect();
@@ -17,6 +19,7 @@ function getPost($postId)
     return $post;
 }
 
+//Commentaire selon un chapitre
 function getComments($postId)
 {
     $db = dbConnect();
@@ -26,11 +29,12 @@ function getComments($postId)
     return $comments;
 }
 
+//Connexion
 function dbConnect()
 {
     try
     {
-        $db = new PDO('mysql:host=localhost;dbname=tpblog;charset=utf8', 'root', '');
+        $db = new PDO('mysql:host=localhost;dbname=tpblog;charset=utf8', 'root', '', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         return $db;
     }
     catch(Exception $e)

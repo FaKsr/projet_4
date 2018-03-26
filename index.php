@@ -1,15 +1,32 @@
 <?php
 
-// On charge le fichier du modèle
-require('modele2.php');
+// On charge le controller
+require('controller.php');
 
-// On appelle la fonction, ce qui exécute le code à l'intérieur de modele.php . On y récupère la liste des billets dans la variable $req
-// getPosts();
-$posts = getPosts();
-
-
-// On charge le fichier de la vue (l'affichage), qui va présenter les informations dans une page HTML   
-require('indexView.php');
+if(isset($_GET['action']))
+{
+    if($_GET['action'])
+    {
+        if($_GET['action'] == 'listposts')
+        {
+            listposts();
+        }
+        elseif ($_GET['action'] == 'post')
+        {
+            if(isset($_GET['id']) && $_GET['id'] > 0)
+            {
+                post();
+            }
+            else{
+                echo 'Erreur : aucun identifiant de billet envoyé';
+            }
+        }
+    }
+    else
+    {
+        listPosts();
+    }
+}
 
 
 
