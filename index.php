@@ -1,9 +1,15 @@
 <?php
 
 // On charge le controller, pour que les fonctions soient en mémoire
-require('controller/frontend.php');
+require_once('controller/frontend.php');
 
 try {
+    //Chargment automatique des classes
+    spl_autoload_register(function($class)
+    {
+        require_once('model/'.$class.'.php');
+    });
+
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
             listPosts();
@@ -15,6 +21,7 @@ try {
             }
         } elseif ($_GET['action'] == 'addComment') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
+                //contrôle de saisie des champs
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
@@ -31,6 +38,6 @@ try {
 //récupère le message d'erreur transmis et affiche le message
 catch(Exception $e)
 {
-    $errormessage = $e->getMessage();
-    require('view/errorView.php');
+    $errorMessage = $e->getMessage();
+    require_once('view/frontend/errorView.php');
 }

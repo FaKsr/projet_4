@@ -2,9 +2,8 @@
 
 <?php ob_start(); ?>
 <h1>Un billet simple pour l'Alaska</h1>
-<p>Derniers chapitres du blog :</p>
-
-
+<!-- RENVOYER A LA PAGE SELON ERREUR -->
+<p>champs non remplies</p>
 
 <?php $content = ob_get_clean(); ?>
 

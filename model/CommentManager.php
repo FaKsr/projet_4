@@ -1,10 +1,11 @@
 <?php
-
+//Class CommentManager gère les commentaires
 require_once("model/Manager.php");
 
 // toutes les fonctions concernant les commentaires
 class CommentManager extends Manager
 {
+    //déclaration de la méthode getComments
     public function getComments($postId)
     {
         $db = $this->dbConnect();
@@ -14,6 +15,7 @@ class CommentManager extends Manager
         return $comments;
     }
 
+    //méthode envoie les données dans la bdd
     public function postcomment($postId, $author, $comment)
     {
         $db = $this->dbConnect();

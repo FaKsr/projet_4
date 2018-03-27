@@ -7,7 +7,7 @@ require_once('model/CommentManager.php');
 
 function listPosts()
 {
-    $postManager = new PostManager(); //Création d'un objet
+    $postManager = new PostManager(); //Création d'un objet, instancie la classe
     $posts = $postManager->getPosts(); //Appel d'une fonction de cet objet
 
     require('view/frontend/listPostsView.php');
@@ -37,4 +37,6 @@ function addComment($postId, $author, $comment)
     else {
         header('Location: index.php?action=post&id=' . $postId);
     }
+
+    
 }
