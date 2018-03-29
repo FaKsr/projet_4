@@ -5,7 +5,7 @@ require_once("model/Manager.php");
 // toutes les fonctions concernant les commentaires
 class CommentManager extends Manager
 {
-    //déclaration de la méthode getComments
+    //déclaration de la méthode getComments pour afficher les commentaires
     public function getComments($postId)
     {
         $db = $this->dbConnect();
@@ -15,7 +15,7 @@ class CommentManager extends Manager
         return $comments;
     }
 
-    //méthode envoie les données dans la bdd
+    //méthode envoie les données dans la bdd pour enregistrer les commentaires
     public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
@@ -23,6 +23,17 @@ class CommentManager extends Manager
         $affectedLines = $comments->execute(array($postId, $author, $comment));
 
         return $affectedLines;
+    }
+
+    //méthode qui sert à signaler les commentaires
+    public function reportComment($postId, $author, $comment)
+    {
+        $db = $this->dbConnect();
+        $reports = $db->prepare('INSERT INTO reported(post_id, author, comment) VALUES (?, ?, ?)');
+        $affectedLines = $reports->execute(array($postId, $author, $comment));
+
+        return $affectedLines;
+
     }
 
 }
