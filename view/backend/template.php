@@ -34,8 +34,8 @@
 
     <header>
 
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <a class="navbar-brand" href="#">Jean Forteroche</a>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -45,20 +45,10 @@
                 <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Histoire</a>
+                <a class="nav-link" href="#">Chapitres</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">Romans</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Episodes
-                </a>
-                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                <a class="dropdown-item" href="#">Chapitre 1</a>
-                <a class="dropdown-item" href="#">Chapitre 2</a>
-                <a class="dropdown-item" href="#">Chapitre 3</a>
-                </div>
+                <a class="nav-link" href="#">Commentaires</a>
             </li>
             </ul>
         </div>
@@ -70,21 +60,13 @@
     <body>
 
         <!-- Begin page content -->
-     
-    <main role="main" class="container">
-        <div class="jumbotron jumbotron-fluid">
-        <div class="container">
-            <?= $content ?>
-        </div>
-        </div>
-    </main>
+   
 
        
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
             <span class="text-muted">Pied de page</span>
-            <span id="admin" class="text-muted"><a href="#">Administration</a></span>
             </div>
         </footer>
 

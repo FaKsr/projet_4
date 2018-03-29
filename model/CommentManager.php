@@ -16,7 +16,7 @@ class CommentManager extends Manager
     }
 
     //méthode envoie les données dans la bdd
-    public function postcomment($postId, $author, $comment)
+    public function postComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
