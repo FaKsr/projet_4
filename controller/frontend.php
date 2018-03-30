@@ -38,5 +38,15 @@ function addComment($postId, $author, $comment)
         header('Location: index.php?action=post&id=' . $postId);
     }
 
+    //fonction signaler les commentaires
+    function report()
+    {
+        $postManager = new PostManager();
+        $reportCom = new CommentManager();
+        $reports = $reportCom->reportComment($postId, $author, $comment);
+
+        require('view/frontend/postView.php');
+    }
+
     
 }

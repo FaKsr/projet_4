@@ -29,7 +29,7 @@ class CommentManager extends Manager
     public function reportComment($postId, $author, $comment)
     {
         $db = $this->dbConnect();
-        $reports = $db->prepare('INSERT INTO reported(post_id, author, comment) VALUES (?, ?, ?)');
+        $reports = $db->prepare('UPDATE comments set reported = reported +1');
         $affectedLines = $reports->execute(array($postId, $author, $comment));
 
         return $affectedLines;

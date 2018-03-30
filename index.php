@@ -31,6 +31,14 @@ try {
                 throw new Exception(' Aucun identifiant de billet envoyé');
             }
         }
+        elseif ($_GET['action'] == 'signaler'){
+            if(isset($_GET['id']) && $_GET['id'] > 0){
+                reportComment();
+            }else {
+                throw new Exception(' Signalement non fonctionnel');
+            }
+
+        }
     } else {
         listPosts();
     }
