@@ -38,5 +38,13 @@ function addComment($postId, $author, $comment)
         header('Location: admin.php?action=post&id=' . $postId);
     }
 
+    function connect($pseudo, $password){
+        $userManager = new UserManager();
+        $user = UserManager->connect($pseudo, $password);
+        require('view/backend/adminView.php');
+
+
+    }
+
     
 }

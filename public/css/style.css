@@ -35,6 +35,10 @@ html {
   }
   body {
     margin-bottom: 60px; /* Margin bottom by footer height */
+    background-image:url('../images/alaska.jpg');
+    background-repeat:no-repeat;
+    background-position:50% 50%;
+    
   }
   .footer {
     position: absolute;
@@ -58,5 +62,13 @@ html {
     width: auto;
     max-width: 680px;
     padding: 0 15px;
+    
   }
 
+  /* .jumbotron-fluid{
+      background-image:url('../images/fondAccueil.jpg');
+      /* background-repeat:no-repeat; */
+      /* opacity:0.8; */
+  /* }  */
+
+  

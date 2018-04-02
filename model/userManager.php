@@ -3,18 +3,14 @@
 
 class userManager
 {
-    public function login($pseudo, $password)
+    public function connect($pseudo, $password)
     {
         $db = $this->dbConnect();
         $user = $this->db->prepare('SELECT * FROM user WHERE pseudo = jean_forteroche');
-        var_dump($user);
+       
+        return $user;
     }
 
-    public function logged()
-    {
-        $db = $this->dbConnect();
-        return isset($_SESSION['auth']);
-    }
 
     
 

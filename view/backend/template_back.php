@@ -25,11 +25,11 @@
         <meta name="twitter:descritpion" content="Découvrez le nouveau roman de Jean Forteroche par épisode." />
         <meta name="twitter:image" content="#" />
             
-        <!-- Stylesheets -->
-        <link rel="stylesheet" media="screen" type="text/css" title="Style" href="public/css/style.css" rel="stylesheet" /> 
+        
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-
+        <!-- Stylesheets -->
+        <link rel="stylesheet" media="screen" type="text/css" title="Style" href="public/css/style.css" rel="stylesheet" /> 
     </head>
 
     <header>
@@ -60,6 +60,45 @@
     <body>
 
         <!-- Begin page content -->
+
+        <main role="main" class="container">
+        <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            
+            <div class="container">
+            <h2>Bonjour Jean Forteroche !</h2>
+            <p>blablalbalalalblalalblalblalblalbalblalalblalblalbla</p>            
+            <table class="table table-dark table-hover">
+            <thead>
+            <tr>
+            <th>Chapitres</th>
+            <th>Modification</th>
+            <th>Suppression</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>Chapitre 1</td>
+            <td>#</td>
+            <td>#</td>
+            </tr>
+            <tr>
+            <td>Chapitre 2</td>
+            <td>#</td>
+            <td>#</td>
+            </tr>
+            <tr>
+            <td>Chapitre 3</td>
+            <td>#</td>
+            <td>#</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+            
+        </div>
+        </div>
+    </main>
    
 
        

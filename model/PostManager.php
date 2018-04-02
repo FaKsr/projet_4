@@ -7,7 +7,7 @@ require_once("model/Manager.php");
 
 class PostManager extends Manager
 {
-    //récupère les chapitres
+    // Renvoie la liste des billets du blog
     public function getPosts()
     {
         
@@ -17,7 +17,7 @@ class PostManager extends Manager
         return $req;
     }
 
-    //récupère un chapitre selon l'id
+    // Renvoie les informations sur un billet
     public function getPost($postId)
     {
         $db = $this->dbConnect();

@@ -32,20 +32,23 @@ try {
             }
         }
         elseif ($_GET['action'] == 'signaler'){
-            if(isset($_GET['id']) && $_GET['id'] > 0){
-                reportComment();
-            }else {
-                throw new Exception(' Signalement non fonctionnel');
+            if (isset($_GET['id']) && $_GET['id'] >= 0) {
+                if (!empty($_POST['author']) && !empty($_POST['comment'])) {
+                    report();
+                } else {
+                    throw new Exception(' Signalement non fonctionnel');
+                }
             }
-
         }
     } else {
         listPosts();
     }
+
 }
 //récupère le message d'erreur transmis et affiche le message
 catch(Exception $e)
 {
     $errorMessage = $e->getMessage();
     require_once('view/frontend/errorView.php');
+    require_once('view/backend/errorView.php');
 }

@@ -5,7 +5,7 @@ require_once("model/Manager.php");
 // toutes les fonctions concernant les commentaires
 class CommentManager extends Manager
 {
-    //déclaration de la méthode getComments pour afficher les commentaires
+    // Renvoie le commentaire selon le post
     public function getComments($postId)
     {
         $db = $this->dbConnect();

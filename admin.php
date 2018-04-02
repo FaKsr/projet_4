@@ -5,10 +5,32 @@ require_once('controller/backend.php');
 
 try {
     //Chargment automatique des classes
-    spl_autoload_register(function($class)
-    {
+    spl_autoload_register(function ($class) {
         require_once('model/'.$class.'.php');
     });
+
+    if (isset($_POST['formConnect'])) {
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        $password = sha1($_POST['password']);
+        $pseudolength = strlen($pseudo);
+        if (!empty($_POST['pseudo']) and !empty($_POST['password'])) {
+            if (pseudolength <= 255) {
+                if ($pseudo == "jean_forteroche") {
+                    if ($password == "jean_for") {
+                        connect();
+                    } else {
+                        throw new Exception(' Votre mot de passe ne correspond pas !');
+                    }
+                } else {
+                    throw new Exception(' Votre identifiant ne correspond pas !');
+                }
+            } else {
+                throw new Exception(' Votre pseudo ne doit pas dépasser les 255 caractères ! ');
+            }
+        } else {
+            throw new Exception('Tous les champs ne sont pas remplis ! ');
+        }
+    }
 
     if (isset($_GET['action'])) {
         if ($_GET['action'] == 'listPosts') {
@@ -25,7 +47,7 @@ try {
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     addComment($_GET['id'], $_POST['author'], $_POST['comment']);
                 } else {
-                    throw new Exception( 'Tous les champs ne sont pas remplis !');
+                    throw new Exception('Tous les champs ne sont pas remplis !');
                 }
             } else {
                 throw new Exception(' Aucun identifiant de billet envoyé');
@@ -34,12 +56,9 @@ try {
     } else {
         listPosts();
     }
-    //Authentification
-    
 }
 //récupère le message d'erreur transmis et affiche le message
-catch(Exception $e)
-{
+catch (Exception $e) {
     $errorMessage = $e->getMessage();
-    require_once('view/backend/errorView.php');
+    // require_once('view/backend/errorView.php');
 }
