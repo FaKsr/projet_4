@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 // On charge le controller, pour que les fonctions soient en mémoire
 require_once('controller/frontend.php');
 
@@ -49,6 +49,6 @@ try {
 catch(Exception $e)
 {
     $errorMessage = $e->getMessage();
-    require_once('view/frontend/errorView.php');
-    require_once('view/backend/errorView.php');
+    echo $errorMessage;
+    // require_once('view/frontend/errorView.php');
 }

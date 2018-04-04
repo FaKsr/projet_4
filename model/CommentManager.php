@@ -1,4 +1,5 @@
 <?php
+
 //Class CommentManager gère les commentaires
 require_once("model/Manager.php");
 

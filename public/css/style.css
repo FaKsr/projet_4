@@ -70,5 +70,12 @@ html {
       /* background-repeat:no-repeat; */
       /* opacity:0.8; */
   /* }  */
+  
+  label {
+    display:block;
+    width:150px;
+    float:left;
+   color:red;
+    }
 
   

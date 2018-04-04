@@ -1,14 +1,29 @@
 <?php
 
+require_once("model/Manager.php");
 
-class userManager
+class UserManager extends Manager
+
 {
+    // Connexion à l'admin
     public function connect($pseudo, $password)
     {
         $db = $this->dbConnect();
         $user = $this->db->prepare('SELECT * FROM user WHERE pseudo = jean_forteroche');
        
         return $user;
+    }
+
+    // Changer son mot de passe
+    public function changePass($password)
+    {
+        $db = $this->dbConnect();
+        $password = password_hash($password, PASSWORD_DEFAULT);
+
+        $req = $this->$db->prepare('UPDATE user SET password = :password WHERE id = 1');
+        $req->execute(array(
+        'password' => $pass
+        ));
     }
 
 

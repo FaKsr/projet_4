@@ -84,7 +84,7 @@
         <footer class="footer">
             <div class="container">
             <span class="text-muted">Pied de page</span>
-            <span id="admin" class="text-muted"><a href="view/backend/login.php">Administration</a></span>
+            <span id="admin" class="text-muted"><a href="view/backend/loginView.php">Administration</a></span>
             </div>
         </footer>
 

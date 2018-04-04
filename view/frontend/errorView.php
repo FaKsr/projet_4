@@ -3,7 +3,7 @@
 <?php ob_start(); ?>
 <h1>Un billet simple pour l'Alaska</h1>
 <!-- RENVOYER A LA PAGE SELON ERREUR -->
-<p>champs non remplies</p>
+
 
 <?php $content = ob_get_clean(); ?>
 

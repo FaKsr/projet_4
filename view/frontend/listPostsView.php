@@ -3,13 +3,9 @@
 <?php ob_start(); ?>
 <h1>Un billet simple pour l'Alaska</h1>
 
-<?php
-//Attribution des variables de session
-$id=(isset($_SESSION['id']))?(int) $_SESSION['id']:0;
-$pseudo=(isset($_SESSION['pseudo']))?$_SESSION['pseudo']:'';
-?>
 
-<p>Derniers chapitres du blog :</p>
+
+<p>Dernier épisode du blog:</p>
 
 
 <?php

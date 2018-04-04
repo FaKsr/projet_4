@@ -25,7 +25,6 @@
         <meta name="twitter:descritpion" content="Découvrez le nouveau roman de Jean Forteroche par épisode." />
         <meta name="twitter:image" content="#" />
             
-        
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Stylesheets -->
@@ -42,7 +41,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Accueil<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="../../index.php">Accueil du blog<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Chapitres</a>
@@ -55,7 +54,6 @@
         </nav>
         
     </header>
-
   
     <body>
 
@@ -72,6 +70,7 @@
             <thead>
             <tr>
             <th>Chapitres</th>
+            <th>En attente de publication</th>
             <th>Modification</th>
             <th>Suppression</th>
             </tr>
@@ -81,14 +80,17 @@
             <td>Chapitre 1</td>
             <td>#</td>
             <td>#</td>
+            <td>#</td>
             </tr>
             <tr>
             <td>Chapitre 2</td>
             <td>#</td>
             <td>#</td>
+            <td>#</td>
             </tr>
             <tr>
             <td>Chapitre 3</td>
+            <td>#</td>
             <td>#</td>
             <td>#</td>
             </tr>

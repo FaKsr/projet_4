@@ -1,8 +1,14 @@
 <?php
 
-//chargement des classes
-require_once('model/PostManager.php');
-require_once('model/CommentManager.php');
+//Chargment automatique des classes
+spl_autoload_register(function ($class) 
+{
+    require_once('model/'.$class.'.php');
+});
+
+// //chargement des classes
+// require_once('model/PostManager.php');
+// require_once('model/CommentManager.php');
 
 
 function listPosts()

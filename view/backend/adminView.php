@@ -8,7 +8,6 @@
 $id=(isset($_SESSION['id']))?(int) $_SESSION['id']:0;
 $pseudo=(isset($_SESSION['pseudo']))?$_SESSION['pseudo']:'';
 ?>
-
   
 <?php $content = ob_get_clean(); ?>
 
