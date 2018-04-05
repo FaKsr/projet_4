@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -26,7 +25,7 @@
         <meta name="twitter:image" content="#" />
             
         <!-- Stylesheets -->
-        <link rel="stylesheet" media="screen" type="text/css" title="Style" href="public/css/style.css" rel="stylesheet" /> 
+        <link rel="stylesheet" media="screen" type="text/css" title="Style" href="./public/css/style.css"/> 
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -84,7 +83,7 @@
         <footer class="footer">
             <div class="container">
             <span class="text-muted">Pied de page</span>
-            <span id="admin" class="text-muted"><a href="view/backend/loginView.php">Administration</a></span>
+            <span id="admin" class="text-muted"><a href="admin.php?action=login">Administration</a></span>
             </div>
         </footer>
 

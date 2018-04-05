@@ -1,6 +1,5 @@
 <?php
-spl_autoload_register(function ($class) 
-{
+spl_autoload_register(function ($class) {
     require_once('model/'.$class.'.php');
 });
 
@@ -45,20 +44,75 @@ function addComment($postId, $author, $comment)
 }
 
     //Connexion admin
-    function connect($pseudo, $password)
+    function connect()
     {
-        $pseudo = htmlspecialchars($_POST['pseudo']);
-        $password = htmlspecialchars($_POST['password']);
-        $userManager = new UserManager();
-        $user = $userManager->connect($pseudo, $password);
+        if (!empty($_POST['pseudo']) and !empty($_POST['password'])) {
+            // les champs sont bien posté et pas vide, on sécurise les données entrées par le membre
+            $pseudo = htmlspecialchars($_POST['pseudo']);
+            $password = htmlspecialchars($_POST['password']);
+            $pseudolength = strlen($pseudo);
+            if ($pseudolength <= 255) {
+                $userManager = new UserManager();
+                $user = $userManager->connect();
+                // comparaison du mot de passe (en clair) au mot de passe haché en bdd
+                $isPasswordCorrect = password_verify($password, $user[2]);
+                if ($pseudo == $user[1]) {
+                    if ($isPasswordCorrect) {
+                        // on ouvre la session avec $_SESSION
+                        $_SESSION['admin'] = $pseudo;
+                        require('view/backend/adminView.php');
+                    } else {
+                        throw new Exception(' Votre mot de passe saisie est incorrect !');
+                    }
+                } else {
+                    throw new Exception(' Votre identifiant saisie est incorrect !');
+                }
+            } else {
+                throw new Exception(' Votre pseudo ne doit pas dépasser les 255 caractères ! ');
+            }
+                } else {
+                throw new Exception('Tous les champs ne sont pas remplis ! ');
+            }
+        }
 
-        require('view/backend/adminView.php');
-    }
+        // Affiche le formulaire de connexion
+        function login()
+        {
+            require('view/backend/loginView.php');
+        }
 
-    // // erreur lors de la connexion admin
-    function erreur($err='')
-    {
-        $mess=($err!='')? $err:'Une erreur inconnue s\'est produite';
-        exit('<p>'.$mess.'</p>
-    <p>Cliquez <a href="loginView.php">ici</a> pour revenir à la page d\'accueil</p></div></body></html>');
-    }
+        // Permet de changer de mot de passe
+        function changeMdp()
+        {
+            if (isset($_POST['actualMPD'], $_POST['mpd'], $_POST['mpdConfirm'])) {
+                $actualMPD = htmlspecialchars($_POST['actualMPD']);
+                $mpd = htmlspecialchars($_POST['mpd']);
+                $mpdConfirm = htmlspecialchars($_POST['mpdConfirm']);
+
+                $userManager = new UserManager();
+                $user = $userManager->connect();
+                $isPasswordCorrect = password_verify($actualMPD, $user[2]);
+                
+                if ($isPasswordCorrect) {
+                    if ($mpd == $mpdConfirm && $mpd != "") {
+                        $userManager->changePass($mpd);
+                        require('view/backend/adminView.php');
+                    } else {
+                        $messageError = " Votre mot de passe ne correspond pas à la confirmation ou vous n'avez pas saisie de nouveau mot de passe ! ";
+                        require('view/backend/changeMdpView.php');
+                    }
+                } else {
+                    $messageError = "Votre ancien mot de passe ne correspond pas ! ";
+                    require('view/backend/changeMdpView.php');
+                }
+            } else {
+                $messageError = "";
+                require('view/backend/changeMdpView.php');
+            }
+        }
+
+        // Déconnexion de l'utilisateur
+        function deconnexion ()
+        {
+            
+        }

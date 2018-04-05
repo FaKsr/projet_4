@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
     <head>
@@ -28,20 +27,20 @@
         <!-- Bootstrap -->
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Stylesheets -->
-        <link rel="stylesheet" media="screen" type="text/css" title="Style" href="public/css/style.css" rel="stylesheet" /> 
+        <link rel="stylesheet" media="screen" type="text/css" title="Style" href="public/css/style.css" /> 
     </head>
 
     <header>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Dashboard</a>
+        <a class="navbar-brand" href="admin.php">Dashboard</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="../../index.php">Accueil du blog<span class="sr-only">(current)</span></a>
+                <a class="nav-link" href="index.php">Accueil du blog<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">Chapitres</a>
@@ -49,68 +48,32 @@
             <li class="nav-item">
                 <a class="nav-link" href="#">Commentaires</a>
             </li>
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php?action=switchMpd">Changer de mot de passe</a>
+            </li>
             </ul>
         </div>
         </nav>
-        
     </header>
   
     <body>
-
         <!-- Begin page content -->
 
-        <main role="main" class="container">
+    <main role="main" class="container">
         <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            
-            <div class="container">
-            <h2>Bonjour Jean Forteroche !</h2>
-            <p>blablalbalalalblalalblalblalblalbalblalalblalblalbla</p>            
-            <table class="table table-dark table-hover">
-            <thead>
-            <tr>
-            <th>Chapitres</th>
-            <th>En attente de publication</th>
-            <th>Modification</th>
-            <th>Suppression</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr>
-            <td>Chapitre 1</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            </tr>
-            <tr>
-            <td>Chapitre 2</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            </tr>
-            <tr>
-            <td>Chapitre 3</td>
-            <td>#</td>
-            <td>#</td>
-            <td>#</td>
-            </tr>
-        </tbody>
-    </table>
-</div>
-            
+            <?php echo ($content); ?>  
         </div>
         </div>
     </main>
-   
 
-       
         <!-- Footer -->
+
         <footer class="footer">
             <div class="container">
-            <span class="text-muted">Pied de page</span>
+            <span class="text-muted"><a class="nav-link" href="admin.php?action=deconnexion">Déconnexion</a></span>
             </div>
         </footer>
-
     </body>
 
     <!-- Script Jquery -->
