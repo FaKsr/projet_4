@@ -3,11 +3,6 @@ spl_autoload_register(function ($class) {
     require_once('model/'.$class.'.php');
 });
 
-// //chargement des classes
-// require_once('model/PostManager.php');
-// require_once('model/CommentManager.php');
-// require_once('model/UserManager.php');
-
 // Liste tout les chapitres
 function listPosts()
 {
@@ -43,19 +38,21 @@ function addComment($postId, $author, $comment)
     }
 }
 
-    //Connexion admin
-    function connect()
-    {
-        if (!empty($_POST['pseudo']) and !empty($_POST['password'])) {
-            // les champs sont bien posté et pas vide, on sécurise les données entrées par le membre
-            $pseudo = htmlspecialchars($_POST['pseudo']);
-            $password = htmlspecialchars($_POST['password']);
-            $pseudolength = strlen($pseudo);
+//Connexion admin
+function connect()
+{
+    if (!empty($_POST['pseudo']) and !empty($_POST['password'])) {
+        // les champs sont bien posté et pas vide, on sécurise les données entrées par le membre
+        $pseudo = htmlspecialchars($_POST['pseudo']);
+        $password = htmlspecialchars($_POST['password']);
+        $pseudolength = strlen($pseudo);
+
             if ($pseudolength <= 255) {
                 $userManager = new UserManager();
                 $user = $userManager->connect();
                 // comparaison du mot de passe (en clair) au mot de passe haché en bdd
                 $isPasswordCorrect = password_verify($password, $user[2]);
+
                 if ($pseudo == $user[1]) {
                     if ($isPasswordCorrect) {
                         // on ouvre la session avec $_SESSION
@@ -73,53 +70,53 @@ function addComment($postId, $author, $comment)
                 } else {
                 throw new Exception('Tous les champs ne sont pas remplis ! ');
             }
-        }
+}
 
-        // Affiche le formulaire de connexion
-        function login()
-        {
-            if(isset($_SESSION['admin']) && ($_SESSION['admin'])){
-                require ('view/backend/adminView.php');         
-            }
-            else{
-                require ('view/backend/loginView.php'); 
-            }
-            
-        }
+// Affiche le formulaire de connexion
+function login()
+{
+    if(isset($_SESSION['admin']) && ($_SESSION['admin'])){
+        require ('view/backend/adminView.php');         
+    }
+        else{
+            require ('view/backend/loginView.php'); 
+        }   
+}
 
         // Permet de changer de mot de passe
-        function changeMdp()
-        {
-            if (isset($_POST['actualMPD'], $_POST['mpd'], $_POST['mpdConfirm'])) {
-                $actualMPD = htmlspecialchars($_POST['actualMPD']);
-                $mpd = htmlspecialchars($_POST['mpd']);
-                $mpdConfirm = htmlspecialchars($_POST['mpdConfirm']);
+function changeMdp()
+{
+    if (isset($_POST['actualMPD'], $_POST['mpd'], $_POST['mpdConfirm'])) {
+        $actualMPD = htmlspecialchars($_POST['actualMPD']);
+        $mpd = htmlspecialchars($_POST['mpd']);
+        $mpdConfirm = htmlspecialchars($_POST['mpdConfirm']);
 
-                $userManager = new UserManager();
-                $user = $userManager->connect();
-                $isPasswordCorrect = password_verify($actualMPD, $user[2]);
-                
-                if ($isPasswordCorrect) {
-                    if ($mpd == $mpdConfirm && $mpd != "") {
-                        $userManager->changePass($mpd);
-                        require('view/backend/adminView.php');
-                    } else {
-                        $messageError = " Votre mot de passe ne correspond pas à la confirmation ou vous n'avez pas saisie de nouveau mot de passe ! ";
-                        require('view/backend/changeMdpView.php');
-                    }
-                } else {
-                    $messageError = "Votre ancien mot de passe ne correspond pas ! ";
-                    require('view/backend/changeMdpView.php');
-                }
+        $userManager = new UserManager();
+        $user = $userManager->connect();
+        $isPasswordCorrect = password_verify($actualMPD, $user[2]);
+        
+        if ($isPasswordCorrect) {
+            if ($mpd == $mpdConfirm && $mpd != "") {
+                $userManager->changePass($mpd);
+                require('view/backend/adminView.php');
             } else {
-                $messageError = "";
+                $messageError = " Votre mot de passe ne correspond pas à la confirmation ou vous n'avez pas saisie de nouveau mot de passe ! ";
                 require('view/backend/changeMdpView.php');
             }
+        } else {
+            $messageError = "Votre ancien mot de passe ne correspond pas ! ";
+            require('view/backend/changeMdpView.php');
         }
+    } else {
+        $messageError = "";
+        require('view/backend/changeMdpView.php');
+    }
+}
 
-        // Déconnexion de l'utilisateur
-        function deconnect ()
-        {
-            session_destroy();
-            header('Location: index.php');
-        }
+
+// Déconnexion de l'utilisateur
+function deconnect ()
+{
+    session_destroy();
+    header('Location: index.php');
+}

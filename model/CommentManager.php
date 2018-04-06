@@ -1,9 +1,9 @@
 <?php
 
 //Class CommentManager gère les commentaires
+
 require_once("model/Manager.php");
 
-// toutes les fonctions concernant les commentaires
 class CommentManager extends Manager
 {
     // Renvoie le commentaire selon le post
@@ -34,7 +34,6 @@ class CommentManager extends Manager
         $affectedLines = $reports->execute(array($postId, $author, $comment));
 
         return $affectedLines;
-
     }
 
 }

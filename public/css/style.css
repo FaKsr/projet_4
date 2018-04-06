@@ -34,11 +34,10 @@ html {
     min-height: 100%;
   }
   body {
-    margin-bottom: 60px; /* Margin bottom by footer height */
-    background-image:url('../images/alaska.jpg');
-    background-repeat:no-repeat;
-    background-position:50% 50%;
-    
+    margin-bottom: 46px; /* Margin bottom by footer height */
+    background-color:grey;
+    /* background-repeat:no-repeat;
+    background-position:50% 50%; */
   }
   .footer {
     position: absolute;
