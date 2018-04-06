@@ -1,5 +1,5 @@
 <?php
-session_start();
+// session_start();
 // On charge le controller, pour que les fonctions soient en mémoire
 require_once('controller/frontend.php');
 

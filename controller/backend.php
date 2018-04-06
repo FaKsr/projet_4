@@ -59,7 +59,7 @@ function addComment($postId, $author, $comment)
                 if ($pseudo == $user[1]) {
                     if ($isPasswordCorrect) {
                         // on ouvre la session avec $_SESSION
-                        $_SESSION['admin'] = $pseudo;
+                        $_SESSION['admin'] = true;
                         require('view/backend/adminView.php');
                     } else {
                         throw new Exception(' Votre mot de passe saisie est incorrect !');
@@ -78,7 +78,13 @@ function addComment($postId, $author, $comment)
         // Affiche le formulaire de connexion
         function login()
         {
-            require('view/backend/loginView.php');
+            if(isset($_SESSION['admin']) && ($_SESSION['admin'])){
+                require ('view/backend/adminView.php');         
+            }
+            else{
+                require ('view/backend/loginView.php'); 
+            }
+            
         }
 
         // Permet de changer de mot de passe
@@ -112,7 +118,8 @@ function addComment($postId, $author, $comment)
         }
 
         // Déconnexion de l'utilisateur
-        function deconnexion ()
+        function deconnect ()
         {
-            
+            session_destroy();
+            header('Location: index.php');
         }
