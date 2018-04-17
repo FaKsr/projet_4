@@ -41,11 +41,10 @@ function addComment($postId, $author, $comment)
 }
 
 //fonction signaler les commentaires
-function reportComment($postId, $author, $comment)
+function reportComment($commentId, $postId)
 {
-    // $postManager = new PostManager();
     $reportCom = new CommentManager();
-    $reports = $reportCom->reportComment($postId, $author, $comment);
+    $reports = $reportCom->reportComment($postId);
 
-    require('view/frontend/postView.php');
+    header('Location: index.php?action=post&id=' . $postId);
 }

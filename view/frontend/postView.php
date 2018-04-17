@@ -1,4 +1,7 @@
+
 <?php $title = htmlspecialchars($post['title']); ?>
+
+
 
 <?php ob_start(); ?>
 <h1>Un billet simple pour l'Alaska</h1>
@@ -39,7 +42,7 @@
 while ($comment = $comments->fetch())
 {
 ?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> <a href="index.php?action=signaler&amp;id=<?=$comment['id']?>">signaler</a></p>
+    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> <a href="index.php?action=signaler&amp;id=<?=$comment['id']?>&postId=<?= $post['id'] ?>">signaler</a></p>
     <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
     
 <?php

@@ -26,7 +26,7 @@ try {
                 throw new Exception(' Aucun identifiant de billet envoyé');
             }
         } elseif ($_GET['action'] == 'signaler') {
-            reportComment($postId, $author, $comment);
+                reportComment($_GET['id'], $_GET['postId']);
         } else {
             throw new Exception(' Signalement non fonctionnel');
         }

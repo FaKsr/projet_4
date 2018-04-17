@@ -28,6 +28,15 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <!-- Stylesheets -->
         <link rel="stylesheet" media="screen" type="text/css" title="Style" href="public/css/style.css" /> 
+
+        <script type="text/javascript" src="./1-tinyMCE-simple/tinymce/tinymce.js"></script>
+        <script type="text/javascript">
+            tinyMCE.init({
+                mode : "textareas",
+                theme : "modern"               
+            });
+        </script>
+
     </head>
 
     <header>
@@ -58,11 +67,19 @@
   
     <body>
         <!-- Begin page content -->
+    <br/>
+
+    <form action="traitement.php" method="post" name="formulaire" id="formulaire">
+            <label for="texte" ></label>
+            <textarea id="texte" name="texte" style="with: 100%;"></textarea>
+            <?php $contenu = $_POST[‘texte’] ; ?>
+            <input name="send" type="submit" value="Envoyer" />
+    </form>
 
     <main role="main" class="container">
         <div class="jumbotron jumbotron-fluid">
         <div class="container">
-            <?php echo ($content); ?>  
+            <?php echo($content); ?>  
         </div>
         </div>
     </main>

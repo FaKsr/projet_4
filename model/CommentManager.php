@@ -27,13 +27,13 @@ class CommentManager extends Manager
     }
 
     //méthode qui sert à signaler les commentaires
-    public function reportComment($postId, $author, $comment)
+    public function reportComment($postId)
     {
         $db = $this->dbConnect();
-        $reports = $db->prepare('UPDATE comments set reported = reported +1');
-        $affectedLines = $reports->execute(array($postId, $author, $comment));
+        $reports = $db->prepare('UPDATE comments set reported = reported +1 where id=?');
+        $reports->execute(array($postId));
 
-        return $affectedLines;
+        return $reports;
     }
 
 }
