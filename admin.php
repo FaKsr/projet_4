@@ -37,6 +37,8 @@ try {
                 changeMdp();
             } elseif ($_GET['action'] == 'deconnexion') {
                 deconnect();
+            } elseif ($_GET['action'] == 'edit') {
+                editPost();
             }
         } // fin de if $_SESSION
         else {

@@ -44,7 +44,7 @@ function addComment($postId, $author, $comment)
 function reportComment($commentId, $postId)
 {
     $reportCom = new CommentManager();
-    $reports = $reportCom->reportComment($postId);
+    $reports = $reportCom->reportComment($commentId);
 
     header('Location: index.php?action=post&id=' . $postId);
 }

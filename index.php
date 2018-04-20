@@ -38,5 +38,5 @@ try {
 catch (Exception $e) {
     $errorMessage = $e->getMessage();
     echo $errorMessage;
-    require_once('view/frontend/errorView.php');
+    // require_once('view/frontend/errorView.php');
 }

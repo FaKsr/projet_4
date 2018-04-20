@@ -10,7 +10,6 @@ class PostManager extends Manager
     // Renvoie la liste des billets du blog
     public function getPosts()
     {
-        
         $db = $this->dbConnect();
         $req = $db->query('SELECT id, title, content, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
 
@@ -28,4 +27,13 @@ class PostManager extends Manager
         return $post;
     }
 
+    //écrire un épisode
+    public function writeChapter($postId)
+    {
+        $db = $this->dbConnect();
+        $editP = $db->prepare("UPDATE posts SET title = '', content = '', creation_date = '' where id=?");
+        $editP->execute(array($postId));
+  
+        return $editP;
+    }
 }

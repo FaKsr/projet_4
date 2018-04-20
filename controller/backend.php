@@ -47,40 +47,39 @@ function connect()
         $password = htmlspecialchars($_POST['password']);
         $pseudolength = strlen($pseudo);
 
-            if ($pseudolength <= 255) {
-                $userManager = new UserManager();
-                $user = $userManager->connect();
-                // comparaison du mot de passe (en clair) au mot de passe haché en bdd
-                $isPasswordCorrect = password_verify($password, $user[2]);
+        if ($pseudolength <= 255) {
+            $userManager = new UserManager();
+            $user = $userManager->connect();
+            // comparaison du mot de passe (en clair) au mot de passe haché en bdd
+            $isPasswordCorrect = password_verify($password, $user[2]);
 
-                if ($pseudo == $user[1]) {
-                    if ($isPasswordCorrect) {
-                        // on ouvre la session avec $_SESSION
-                        $_SESSION['admin'] = true;
-                        require('view/backend/adminView.php');
-                    } else {
-                        throw new Exception(' Votre mot de passe saisie est incorrect !');
-                    }
+            if ($pseudo == $user[1]) {
+                if ($isPasswordCorrect) {
+                    // on ouvre la session avec $_SESSION
+                    $_SESSION['admin'] = true;
+                    require('view/backend/adminView.php');
                 } else {
-                    throw new Exception(' Votre identifiant saisie est incorrect !');
+                    throw new Exception(' Votre mot de passe saisie est incorrect !');
                 }
             } else {
-                throw new Exception(' Votre pseudo ne doit pas dépasser les 255 caractères ! ');
+                throw new Exception(' Votre identifiant saisie est incorrect !');
             }
-                } else {
-                throw new Exception('Tous les champs ne sont pas remplis ! ');
-            }
+        } else {
+            throw new Exception(' Votre pseudo ne doit pas dépasser les 255 caractères ! ');
+        }
+    } else {
+        throw new Exception('Tous les champs ne sont pas remplis ! ');
+    }
 }
 
 // Affiche le formulaire de connexion
 function login()
 {
-    if(isset($_SESSION['admin']) && ($_SESSION['admin'])){
-        require ('view/backend/adminView.php');         
+    if (isset($_SESSION['admin']) && ($_SESSION['admin'])) {
+        require('view/backend/adminView.php');
+    } else {
+        require('view/backend/loginView.php');
     }
-        else{
-            require ('view/backend/loginView.php'); 
-        }   
 }
 
         // Permet de changer de mot de passe
@@ -115,8 +114,14 @@ function changeMdp()
 
 
 // Déconnexion de l'utilisateur
-function deconnect ()
+function deconnect()
 {
     session_destroy();
     header('Location: index.php');
+}
+
+// Ecrire un chapitre
+function editPost()
+{
+    require('view/backend/editPostView.php');
 }
