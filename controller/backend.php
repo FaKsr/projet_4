@@ -120,8 +120,15 @@ function deconnect()
     header('Location: index.php');
 }
 
+// view tiny
+function editPost(){
+    require('view/backend/editPostView.php');
+}
+
 // Ecrire un chapitre
-function editPost()
+function createPost($title, $texte, $id_ep)
 {
+    $postManager = new PostManager();
+    $post = $postManager->createPost($title, $texte, $id_ep);
     require('view/backend/editPostView.php');
 }

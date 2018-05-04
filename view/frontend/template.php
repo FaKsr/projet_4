@@ -41,10 +41,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
             <li class="nav-item active">
-                <a class="nav-link" href="#">Histoire</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Romans</a>
+                <a class="nav-link" href="#">Mon histoire</a>
             </li>
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -62,7 +59,6 @@
         
     </header>
 
-  
     <body>
 
         <!-- Begin page content -->
@@ -74,13 +70,11 @@
         </div>
         </div>
     </main>
-
        
         <!-- Footer -->
         <footer class="footer">
             <div class="container">
-            <span class="text-muted">Pied de page</span>
-            <span id="admin" class="text-muted"><a href="admin.php?action=login">Administration</a></span>
+                <span class="text-muted">Kercode&copy2018  Blog | <a href="admin.php?action=login">Jean Forteroche</a></span> </span>
             </div>
         </footer>
 

@@ -11,7 +11,7 @@
     <p>Confirmer nouveau mot de passe</p>
     <input type="password" class="formu" name="mpdConfirm" placeholder="Confirmation"/>
     </br>
-    <input type="submit" id="bouton" name="Envoyer" value="changer"/>
+    <input type="submit" id="bouton" name="Envoyer" value="changer" class="btn btn-warning"/>
 </form>
 <?php $content = ob_get_clean(); ?>
 

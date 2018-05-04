@@ -39,6 +39,18 @@ try {
                 deconnect();
             } elseif ($_GET['action'] == 'edit') {
                 editPost();
+            } 
+            elseif ($_GET['action'] == 'createPost') {
+                $title = $_POST['title'];
+                $texte = $_POST['texte'];
+                $id_ep = $_POST['id_ep'];
+
+                if(!empty($title) && !empty($texte) && !empty($id_ep )){
+                    createPost($title, $texte, $id_ep);
+                }
+                else{
+                    throw new Exception('Erreur');
+                }
             }
         } // fin de if $_SESSION
         else {
@@ -53,5 +65,5 @@ try {
 //récupère le message d'erreur transmis et affiche le message
 catch (Exception $e) {
     $errorMessage = $e->getMessage();
-    require_once('view/backend/errorView.php');
+    require 'view/backend/errorView.php';
 }

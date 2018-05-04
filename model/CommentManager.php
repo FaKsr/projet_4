@@ -1,7 +1,6 @@
 <?php
 
 //Class CommentManager gère les commentaires
-
 require_once("model/Manager.php");
 
 class CommentManager extends Manager
@@ -19,6 +18,8 @@ class CommentManager extends Manager
     //méthode envoie les données dans la bdd pour enregistrer les commentaires
     public function postComment($postId, $author, $comment)
     {
+        $author = htmlspecialchars($_POST['author']);
+        $comment = htmlspecialchars($_POST['comment']);
         $db = $this->dbConnect();
         $comments = $db->prepare('INSERT INTO comments(post_id, author, comment, comment_date) VALUES(?, ?, ?, NOW())');
         $affectedLines = $comments->execute(array($postId, $author, $comment));
@@ -34,6 +35,11 @@ class CommentManager extends Manager
         $reports->execute(array($commentId));
 
         return $reports;
+    }
+
+    // supprimer un commentaire
+    public function deleteComment(){
+        
     }
 
 }

@@ -44,7 +44,7 @@
 
         <footer class="footer">
             <div class="container">
-            <span class="text-muted">&copy2018 Blog</a></span>
+            <span class="text-muted">&copy2018 Jean Forteroche | Blog</a></span>
             </div>
         </footer>
     </body>

@@ -1,53 +1,65 @@
-
 <?php $title = 'Jean Forteroche, écrivain et acteur'; ?>
 
-    <div class="container py-5">
-    <div class="row">
-        <div class="col-md-12">
-            <h2 class="text-center text-white mb-4">Ma machine à écrire</h2>
-            <div class="row">
-                <div class="col-md-6 mx-auto">
-                <div class="container py-5">
-                       
+<section class="login-block">
+    <div class="container">
+	    <div class="row">
+		    <div class="col-md-4 login-sec">
+          <h2 class="text-center">Ma machine à écrire</h2>
+          <h3>Tous vos textes en un seul endroit</h3>   
 
-                    <!-- form card login -->
-                    <div class="card rounded-0">
-                        <div class="card-header">
-                        <h3>Tous vos textes en un seul endroit</h3>
-                        </div>
-                        <div class="card-body">
-                            <form action="?action=connexion" class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
-                                <div class="form-group">
-                                    <label for="uname1">Pseudo</label>
-                                    <input type="text" class="form-control form-control-lg rounded-0" name="pseudo" placeholder="identifiant" id="pseudo" value="">
-                                    <div class="invalid-feedback">Oops, you missed this one.</div>
-                                </div>
-                                <div class="form-group">
-                                    <label>Mot de passe</label>
-                                    <input type="password" name="password" placeholder="Mot de passe"  class="form-control form-control-lg rounded-0" id="pwd1" value="" autocomplete="new-password">
-                                    <div class="invalid-feedback">Entrez votre mot de passe</div>
-                                </div>
-                                <div>
-                                <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" name="connexion" value="connexion">Login</button>
-                                <p class="credits"><a href="index.php" target="_blank">Retour au blog</a></p>
-                            </form>
+          <form action="?action=connexion" class="login-form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
 
-                        </div>
-                        <!--/card-block-->
+          <div class="form-group">
+            <label for="pseudo" class="text-uppercase"></label>
+            <input require type="text" class="form-control" name="pseudo" placeholder="Identifiant" id="pseudo" value="">
+          </div>
+
+          <div class="form-group">
+            <label for="password" class="text-uppercase"></label>
+            <input require type="password" name="password" id="pwd1" value="" class="form-control" placeholder="Mot de passe" autocomplete="new-password">
+          </div>
+
+          <div class="form-check">
+          <a class="credits" href="index.php" target="_blank">Retour au blog</a>
+          <button type="submit" class="btn btn-login float-right">Se connecter</button></div>
+         </form>
+
+          </div>
+
+		<div class="col-md-8 banner-sec">
+            <!-- <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                  
-                        
-                        <!--/card-block-->
-                    </div>
-                    <!-- /form card login -->
-                </div>
-            </div>
-            <!--/row-->
-        </div>
-        <!--/col-->
-    </div>
-    <!--/row-->
+
+            <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active"> -->
+      <img class="d-block img-fluid" src="./public/images/vintage.jpg" alt="">
+     
+
+  <!-- //   <div class="carousel-item">
+  //     <img class="d-block img-fluid" src="https://images.pexels.com/photos/7097/people-coffee-tea-meeting.jpg" alt="First slide">
+  //     <div class="carousel-caption d-none d-md-block">
+  //       <div class="banner-text">
+  //           <h2>This is Heaven</h2>
+  //           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+  //       </div>	
+  //   </div>
+  //   </div> -->
+
+  <!-- //   <div class="carousel-item">
+  //     <img class="d-block img-fluid" src="https://images.pexels.com/photos/872957/pexels-photo-872957.jpeg" alt="First slide">
+  //     <div class="carousel-caption d-none d-md-block">
+  //       <div class="banner-text">
+  //           <h2>This is Heaven</h2>
+  //           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation</p>
+  //       </div>	
+  //   </div>
+  // </div>
+            </div>	    -->
+		    
+		</div>
+	</div>
 </div>
-<!--/container-->
+</section>
 
 <?php $content = ob_get_clean(); ?>
 

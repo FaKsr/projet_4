@@ -1,22 +1,21 @@
-
-<?php $title = htmlspecialchars($post['title']); ?>
-
-
+<title>Découvrir les chapitres</title> 
 
 <?php ob_start(); ?>
 <h1>Un billet simple pour l'Alaska</h1>
-<p><a href="index.php">Retour à la liste des billets</a></p>
 
 <div class="news">
     <h3>
-        <?= htmlspecialchars($post['title']) ?>
-        <em>le <?= $post['creation_date_fr'] ?></em>
+        <?= htmlspecialchars($post['numero']) ?>-
+        <?= htmlspecialchars($post['title']) ?>  
+        <em>le <?= htmlspecialchars($post['creation_date_fr']) ?></em>
     </h3>
     
     <p>
-        <?= nl2br(htmlspecialchars($post['content'])) ?>
+        <?= $post['content'] ?>
     </p>
 </div>
+
+<a href="index.php">Retour à la liste des billets</a>
 
 <h2>Commentaires</h2>
 
@@ -43,7 +42,7 @@ while ($comment = $comments->fetch())
 {
 ?>
     <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> <a href="index.php?action=signaler&amp;id=<?=$comment['id']?>&postId=<?= $post['id'] ?>">signaler</a></p>
-    <p><?= nl2br(htmlspecialchars($comment['comment'])) ?></p>
+    <p><?= htmlspecialchars($comment['comment']) ?></p>
     
 <?php
 }

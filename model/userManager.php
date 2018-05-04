@@ -30,13 +30,3 @@ class UserManager extends Manager
 
 }
 
-
-// Un manager doit pouvoir :
-
-// enregistrer une nouvelle entité ;
-
-// modifier une entité ;
-
-// supprimer une entité ;
-
-// sélectionner une entité.

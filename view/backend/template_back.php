@@ -2,7 +2,7 @@
 <html>
     <head>
 
-        <title><?= $title ?></title>  
+        <title>Admin Jean</title>  
         
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,11 +23,12 @@
         <meta name="twitter:url" content="#" />
         <meta name="twitter:descritpion" content="Découvrez le nouveau roman de Jean Forteroche par épisode." />
         <meta name="twitter:image" content="#" />
-            
-        <!-- Bootstrap -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+           
         <!-- Stylesheets -->
         <link rel="stylesheet" media="screen" type="text/css" title="Style" href="public/css/style.css" /> 
+        <!-- Bootstrap -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+        
     </head>
 
     <header>
@@ -40,7 +41,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Accueil du blog<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php">Blog<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php?action=switchMpd">Changer de mot de passe</a>
