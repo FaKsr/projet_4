@@ -117,7 +117,8 @@ function changeMdp()
 function deconnect()
 {
     session_destroy();
-    header('Location: index.php');
+    require('view/frontend/accueil.php');
+    // header('Location: index.php');
 }
 
 // view tiny

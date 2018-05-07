@@ -1,4 +1,4 @@
-<title>Découvrir les chapitres</title> 
+<title>Les épisodes d'un Billet simple pour l'Alaska</title> 
 
 <?php ob_start(); ?>
 <h1>Un billet simple pour l'Alaska</h1>

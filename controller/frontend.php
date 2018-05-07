@@ -48,3 +48,13 @@ function reportComment($commentId, $postId)
 
     header('Location: index.php?action=post&id=' . $postId);
 }
+
+//fonction afficher page mon histoire
+function tellStory(){
+    require('view/frontend/storyJean.php');
+}
+
+//fonction afficher page accueil
+function showAccueil(){
+    require('view/frontend/accueil.php');
+}

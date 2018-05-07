@@ -1,4 +1,4 @@
-<?php $title = 'Jean Forteroche, écrivain et acteur'; ?>
+<title>Tableau de bord de Jean Forteroche</title>
 
 <?php ob_start(); ?>
 <h1>Bonjour Jean Forteroche !</h1>

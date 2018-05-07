@@ -41,7 +41,7 @@
         <div class="collapse navbar-collapse" id="navbarNavDropdown">
             <ul class="navbar-nav">
                 <li class="nav-item active">
-                    <a class="nav-link" href="index.php">Blog<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="index.php?action=accueil">Accueil du blog<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php?action=switchMpd">Changer de mot de passe</a>
@@ -72,7 +72,7 @@
 
         <footer class="footer">
             <div class="container">
-            <span class="text-muted">&copy2018 Blog</a></span>
+            <span class="text-muted">Kercode &copy2018 Jean Forteroche | Blog</a></span>
             </div>
         </footer>
     </body>

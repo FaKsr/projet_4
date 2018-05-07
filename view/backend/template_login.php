@@ -44,7 +44,7 @@
 
         <footer class="footer">
             <div class="container">
-            <span class="text-muted">&copy2018 Jean Forteroche | Blog</a></span>
+            <span class="text-muted">Kercode &copy2018 Jean Forteroche | <a href="index.php?action=accueil"> Blog</a></span>
             </div>
         </footer>
     </body>
