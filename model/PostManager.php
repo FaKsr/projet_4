@@ -1,8 +1,8 @@
 <?php
 
 //Class PostManager gère les chapitres
-
 require_once("model/Manager.php");
+
 //toutes les fonctions concernants les posts
 
 class PostManager extends Manager
@@ -11,7 +11,7 @@ class PostManager extends Manager
     public function getPosts()
     {
         $db = $this->dbConnect();
-        $req = $db->query('SELECT id, title, content, numero, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 5');
+        $req = $db->query('SELECT id, title, content, numero, DATE_FORMAT(creation_date, \'%d/%m/%Y à %Hh%imin%ss\') AS creation_date_fr FROM posts ORDER BY creation_date DESC LIMIT 0, 100');
 
         return $req;
     }
@@ -37,12 +37,21 @@ class PostManager extends Manager
     }
 
     //modifier un episode
-    public function updatePosts(){
+    // public function updatePosts($title, $texte, $id_ep){
+    //     $db = $this->dbConnect();
+    //     $req = $db->prepare("UPDATE to posts (title, content, numero, creation_date) VALUES (?, ?, ?, NOW())");
+    //     $req->execute(array($title, $texte, $id_ep));
+    //     return $req;
 
-    }
+    // }
 
     // supprimer un episode
-    public function deletePost(){
+    public function deletePost($deletePost)
+    {
+        $db = $this->dbConnect();
+        $req = $db->prepare("DELETE FROM posts WHERE id=?");
+        $req->execute(array($deletePost));
 
+        return $req;
     }
 }

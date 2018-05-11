@@ -34,7 +34,7 @@
     <header>
 
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="admin.php">Dashboard</a>
+            <a class="navbar-brand" href="admin.php?action=login">Dashboard</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
@@ -48,6 +48,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php?action=edit">Ecrire un épisode</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.php?action=listPosts">Gérer les chapitres</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php?action=deconnexion">Déconnexion</a>
@@ -71,7 +74,7 @@
         <!-- Footer -->
 
         <footer class="footer">
-            <div class="container">
+            <div id="footer" class="container">
             <span class="text-muted">Kercode &copy2018 Jean Forteroche | Blog</a></span>
             </div>
         </footer>

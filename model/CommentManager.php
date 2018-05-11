@@ -37,9 +37,6 @@ class CommentManager extends Manager
         return $reports;
     }
 
-    // supprimer un commentaire
-    public function deleteComment(){
-        
-    }
+
 
 }

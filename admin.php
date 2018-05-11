@@ -7,37 +7,31 @@ require_once('controller/backend.php');
 
 try {
     if (isset($_GET['action'])) {
+        
         if ($_GET['action'] == 'connexion') {
             connect();
         }
         if (isset($_SESSION['admin']) and $_SESSION['admin']) {
             if ($_GET['action'] == 'listPosts') {
-                listPosts();
-            } elseif ($_GET['action'] == 'post') {
+                listEpisods();
+            }
+            elseif ($_GET['action'] == 'post') {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    post();
-                } else {
-                    //stop le bloc try pour aller directement au catch
-                    throw new Exception(' Aucun identifiant de billet envoyé');
-                }
-            } elseif ($_GET['action'] == 'addComment') {
-                if (isset($_GET['id']) && $_GET['id'] > 0) {
-                    //contrôle de saisie des champs
-                    if (!empty($_POST['author']) && !empty($_POST['comment'])) {
-                        addComment($_GET['id'], $_POST['author'], $_POST['comment']);
-                    } else {
-                        throw new Exception('Tous les champs ne sont pas remplis !');
-                    }
+                    episod();
                 } else {
                     throw new Exception(' Aucun identifiant de billet envoyé');
                 }
-            } elseif ($_GET['action'] == 'login') {
+            } 
+            elseif ($_GET['action'] == 'login') {
                 login();
-            } elseif ($_GET['action'] == 'switchMpd') {
+            }
+             elseif ($_GET['action'] == 'switchMpd') {
                 changeMdp();
-            } elseif ($_GET['action'] == 'deconnexion') {
+            } 
+            elseif ($_GET['action'] == 'deconnexion') {
                 deconnect();
-            } elseif ($_GET['action'] == 'edit') {
+            } 
+            elseif ($_GET['action'] == 'edit') {
                 editPost();
             } 
             elseif ($_GET['action'] == 'createPost') {
@@ -52,13 +46,16 @@ try {
                     throw new Exception('Erreur');
                 }
             }
+            elseif($_GET['action'] == 'deletePost'){
+                deletePost($deletePost);
+            }
         } // fin de if $_SESSION
         else {
             login();
         }
     } // fin de if $_GET action
     else {
-        listPosts();
+        require 'view/frontend/accueil.php';
     }
 } //fin de try
 

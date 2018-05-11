@@ -15,11 +15,11 @@
     </p>
 </div>
 
-<a href="index.php">Retour à la liste des billets</a>
+<a href="index.php?action=listPosts">Retour à la liste des billets</a>
 
 <h2>Commentaires</h2>
 
-    <form action="index.php?action=addComment&amp;id= <?= $post['id'] ?>" method="post">
+    <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
         <div>
             <label for="author">Auteur</label>
             <br />

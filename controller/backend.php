@@ -3,17 +3,17 @@ spl_autoload_register(function ($class) {
     require_once('model/'.$class.'.php');
 });
 
-// Liste tout les chapitres
-function listPosts()
+// Récupère les chapitres
+function listEpisods()
 {
     $postManager = new PostManager(); //Création d'un objet, instancie la classe
     $posts = $postManager->getPosts(); //Appel d'une fonction de cet objet
 
-    require('view/backend/adminView.php');
+    require('view/backend/adminPostsView.php');
 }
 
 // Liste un chapitre selon son id
-function post()
+function episod()
 {
     $postManager = new PostManager();
     $commentManager = new CommentManager();
@@ -21,7 +21,7 @@ function post()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/backend/adminView.php');
+    require('view/backend/.php');
 }
 
 //Ajouter des commmentaires
@@ -82,7 +82,7 @@ function login()
     }
 }
 
-        // Permet de changer de mot de passe
+// fonction changer de mot de passe
 function changeMdp()
 {
     if (isset($_POST['actualMPD'], $_POST['mpd'], $_POST['mpdConfirm'])) {
@@ -113,16 +113,16 @@ function changeMdp()
 }
 
 
-// Déconnexion de l'utilisateur
+// Déconnexion de l'utilisateur admin
 function deconnect()
 {
     session_destroy();
     require('view/frontend/accueil.php');
-    // header('Location: index.php');
 }
 
-// view tiny
-function editPost(){
+// View Editer
+function editPost()
+{
     require('view/backend/editPostView.php');
 }
 
@@ -133,3 +133,14 @@ function createPost($title, $texte, $id_ep)
     $post = $postManager->createPost($title, $texte, $id_ep);
     require('view/backend/editPostView.php');
 }
+
+// Supprimer un chapitre
+function deletePost($deletePost)
+{
+    $deletePost= $_GET['id'];
+    $postManager = new PostManager();
+    $post = $postManager->deletePost($_GET['id']);
+
+    header('Location: admin.php?action=listPosts' .$postId);
+}
+

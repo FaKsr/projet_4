@@ -1,5 +1,5 @@
 
-<?php $title = 'Jean Forteroche, écrivain et acteur'; ?>
+<title>Editer un épisode</title>
 
 <?php ob_start(); ?>
 

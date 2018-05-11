@@ -5,18 +5,20 @@ require_once('controller/frontend.php');
 
 try {
     if (isset($_GET['action'])) {
-        if ($_GET['action'] == 'listPosts') {
+        if($_GET['action'] == 'accueil') {
+            showAccueil();
+        }
+        elseif ($_GET['action'] == 'listPosts') {
             listPosts();
         } elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 post();
             } else {
-                //stop le bloc try pour aller directement au catch
                 throw new Exception(' Aucun identifiant de billet envoyé');
             }
         }// fin de elseif post
         elseif ($_GET['action'] == 'addComment') {
-            if (isset($_GET['id']) && $_GET['id'] > 0) {
+             if (isset($_GET['id']) && $_GET['id'] > 0) {
                 //contrôle de saisie des champs
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     $author = htmlspecialchars($_POST['author']);
@@ -35,14 +37,10 @@ try {
     elseif ($_GET['action'] == 'tell') {
         tellStory();
     } 
-    elseif($_GET['action'] == 'accueil') {
-        showAccueil();
-    }
-
     } // fin de if
     
     else {
-        listPosts();
+        showAccueil();
     }
 } // fin de try
 

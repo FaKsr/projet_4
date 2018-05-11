@@ -65,7 +65,7 @@
        
         <!-- Footer -->
         <footer class="footer">
-            <div class="container">
+            <div id="footer" class="container">
                 <span class="text-muted">Kercode&copy2018  Blog | <a href="admin.php?action=login">Jean Forteroche</a></span> </span>
             </div>
         </footer>
