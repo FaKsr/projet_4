@@ -49,6 +49,11 @@ try {
             elseif($_GET['action'] == 'deletePost'){
                 deletePost($deletePost);
             }
+            elseif($_GET['action'] == 'updatePost'){
+                if (isset($_GET['id']) && $_GET['id'] > 0){
+                    episod();
+                }
+            }
         } // fin de if $_SESSION
         else {
             login();
@@ -62,5 +67,5 @@ try {
 //récupère le message d'erreur transmis et affiche le message
 catch (Exception $e) {
     $errorMessage = $e->getMessage();
-    require 'view/backend/errorView.php';
+    // require 'view/backend/errorView.php';
 }

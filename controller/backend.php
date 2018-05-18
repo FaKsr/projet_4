@@ -21,7 +21,7 @@ function episod()
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
 
-    require('view/backend/.php');
+    require('view/backend/editPostView.php');
 }
 
 //Ajouter des commmentaires
@@ -123,6 +123,10 @@ function deconnect()
 // View Editer
 function editPost()
 {
+    $post['title']="";
+    $post['numero']="";
+    $post['content']="";
+
     require('view/backend/editPostView.php');
 }
 
@@ -131,7 +135,8 @@ function createPost($title, $texte, $id_ep)
 {
     $postManager = new PostManager();
     $post = $postManager->createPost($title, $texte, $id_ep);
-    require('view/backend/editPostView.php');
+    
+    require('view/backend/adminView.php');
 }
 
 // Supprimer un chapitre
@@ -142,5 +147,14 @@ function deletePost($deletePost)
     $post = $postManager->deletePost($_GET['id']);
 
     header('Location: admin.php?action=listPosts' .$postId);
+}
+
+//Modifier un chapitre
+function updatePost($title, $texte, $id_ep)
+{
+    $postManager = new PostManager();
+    $post = $postManager->updatePost($title, $texte, $id_ep);
+
+    require('view/backend/adminPostView.php');
 }
 

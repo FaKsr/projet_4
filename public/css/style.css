@@ -8,6 +8,7 @@ h1, h3
     background-color:whitesmoke;
     margin-top:0px;
 }
+
 .news
 {
     width:70%;
@@ -131,12 +132,12 @@ label{
 }
 #title_ep{
     color:#5782AC;
-    margin-bottom:5px;
+    margin-bottom:15px;
     width:35%;
 }
 #id_ep{
     color:#5782AC;
-    margin-bottom:5px;
+    margin-bottom:15px;
     width:31%;
 }
 #contenu{

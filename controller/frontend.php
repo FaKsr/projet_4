@@ -50,11 +50,13 @@ function reportComment($commentId, $postId)
 }
 
 //fonction afficher page mon histoire
-function tellStory(){
+function tellStory()
+{
     require('view/frontend/storyJean.php');
 }
 
 //fonction afficher page accueil
-function showAccueil(){
+function showAccueil()
+{
     require('view/frontend/accueil.php');
 }
