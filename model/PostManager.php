@@ -1,7 +1,7 @@
 <?php
 
 //Class PostManager gère les chapitres
-require_once("model/Manager.php");
+
 
 //toutes les fonctions concernants les posts
 
@@ -38,11 +38,11 @@ class PostManager extends Manager
     }
 
     //modifier un episode
-    public function updatePost($title, $texte, $id_ep)
+    public function updatePost($title, $texte, $id_ep, $id)
     {
         $db = $this->dbConnect();
-        $req = $db->prepare("UPDATE posts SET (title, content, numero) VALUES (?, ?, ?) WHERE id=?");
-        $req->execute(array($title, $texte, $id_ep));
+        $req = $db->prepare("UPDATE posts SET title = ?, content = ?, numero = ? WHERE id = ? ");
+        $req->execute(array($title, $texte, $id_ep, $id));
         
         return $req;
     }

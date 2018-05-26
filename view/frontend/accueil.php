@@ -1,4 +1,4 @@
-<title>Accueil</title> 
+<title>Accueil du blog</title> 
 
 <?php ob_start(); ?>
 <div class="site-wrapper">

@@ -33,12 +33,11 @@
     <header>
     <body>
 
-        <main>
-    <!-- <main role="main" class="container">-->
+    <main role="main" class="container">
      
         <?= $content ?> 
     
-        </main>
+    </main>
 
         <!-- Footer -->
 

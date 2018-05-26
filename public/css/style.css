@@ -1,3 +1,5 @@
+
+
 h1, h3
 {
     text-align:center;
@@ -5,7 +7,6 @@ h1, h3
 
 .news p
 {
-    background-color:whitesmoke;
     margin-top:0px;
 }
 
@@ -21,184 +22,236 @@ a
     color: blue;
 }
 
-/* Sticky footer styles
--------------------------------------------------- */
-html {
-    position: relative;
+/* Footer style
+--------------- */
+html 
+{
     min-height: 100%;
-  }
-  body {
-    margin-bottom: 46px; /* Margin bottom by footer height */
-    background-color:grey;
-    /* background-repeat:no-repeat;
-    background-position:50% 50%; */
-  }
-  .footer{
-    position: absolute;
+    position: relative;
+}
+
+body 
+{
+    margin-bottom: 46px; /* hauteur du footer */
+}
+
+.footer
+{
+    position:absolute;
     bottom: 0;
     width: 100%;
-    max-height: 0px; /* Set the fixed height of the footer here */
-    line-height: 46px; /* Vertically center the text there */
-  }
+    max-height: 0px; 
+    line-height: 46px; /* centrer verticalement */
+}
 
-  #admin{
-      float:right;
-  }
+#admin
+{
+    float:right;
+}
   
-  
-  /* Custom page CSS
-  -------------------------------------------------- */
-  /* Not required for template or sticky footer method. */
-  
-  .container {
+/* Formulaire
+---------------- */
+.container 
+{
     width: auto;
     max-width: 680px;
     padding: 0 15px;
     
-  }
-
-  /* .jumbotron-fluid{
-      background-image:url('../images/fondAccueil.jpg');
-      /* background-repeat:no-repeat; */
-      /* opacity:0.8; */
-  /* }  */
+}
   
-  label {
+label 
+{
     display:block;
     width:150px;
     float:left;
-   color:red;
-    }
+    color:#DE6262;
+    position: absolute;
+}
 
-#formulaire{
+#formulaire
+{
     margin:0 auto;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-#butForm{
+input#author.form-control
+{
+    width:20%;
+}
+
+textarea#comment.form-control
+{
+    width:30%;
+}
+
+#butForm
+{
     margin-top:5px;
 }
 
-/* CONNEXION */
-body {
+/* Connexion
+---------------- */
+
+body 
+{
     background: #252525;
     font-family: 'Roboto';
     font-weight: 300;
 }
-.main {
+
+.main 
+{
     background: white url(https://goo.gl/images/XdrzxW) right top no-repeat;
     background-size: contain;
     padding: 80px 20px 20px;
     margin-top: 120px;
 }
-@media only screen and (max-width : 992px) {
-    .main {
+
+@media only screen and (max-width : 992px) 
+{
+    .main 
+    {
         background: white;
         margin-top: 30px;
     }
 }
-h1 {
+
+h1 
+{
     font-family: 'Calibri', sans-serif;
     font-weight: 300;
     color: #555;
     margin-bottom: 0;
 }
-h2 {
+
+h2 
+{
     font-family: 'Calibri', sans-serif;
     font-weight: 300;
     color: #999;
     font-size: 18px;
     margin-top: 5px;
 }
-form {
+
+form 
+{
     margin-top: 60px;
 }
 
-.credits {
+.credits 
+{
     margin-top: 40px;
     color: #999;
     font-size: 12px;
 }
-.credits a {
+
+.credits a 
+{
     color: inherit;
 }
 
-form{
+form
+{
     margin-top:0;
 }
-label{
-    position: absolute;
-}
-#title_ep{
+
+#title_ep
+{
     color:#5782AC;
     margin-bottom:15px;
     width:35%;
 }
-#id_ep{
+
+#id_ep
+{
     color:#5782AC;
     margin-bottom:15px;
     width:31%;
 }
-#contenu{
+
+#contenu
+{
     width: 90%;
     padding-bottom: 15px;
-    background-color: #D6D9D9;
     padding-top:15px;
 }
 
-/* FORM LOGIN */
-.login-block{
-background: #DE6262;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-float:left;
-width:100%;
-padding : 50px 0;
+#contenu h1
+{
+    margin:10px 0px 15px 0px;
+    color:#5782AC;
+    font-weight:bold;
 }
-.banner-sec img{
+
+/* Formulaire login
+------------------- */
+
+.login-block
+{
+    background: #DE6262;  
+    background: -webkit-linear-gradient(to bottom, #FFB88C, #DE6262);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    float:left;
+    width:100%;
+    padding : 50px 0;
+}
+
+.banner-sec img
+{
     background:no-repeat left bottom; 
     margin-left: 15px;
     min-height:500px; 
     border-radius: 0 10px 10px 0; 
-  padding:0;
+    padding:0;
 }
-.container{
-    background:#fff; 
-    border-radius: 10px; 
-    box-shadow:15px 20px 0px rgba(0,0,0,0.1);
-}
-.carousel-inner{
+
+.carousel-inner
+{
     border-radius:0 10px 10px 0;
 }
-.carousel-caption{
+
+.carousel-caption
+{
     text-align:left; 
     left:5%;
 }
-.login-sec{
+
+.login-sec
+{
     padding: 26px 30px;
     position:relative;
 }
-.login-sec .copy-text{
+
+.login-sec .copy-text
+{
     position:absolute; 
     width:80%; 
     bottom:20px; 
     font-size:13px; 
     text-align:center;
 }
-.login-sec .copy-text i{
+
+.login-sec .copy-text i
+{
     color:#FEB58A;
 }
-.login-sec .copy-text a{
+
+.login-sec .copy-text a
+{
     color:#E36262;
 }
-.login-sec h2{
+
+.login-sec h2
+{
     margin-bottom:30px; 
     font-weight:800; 
     font-size:30px; 
     color: #DE6262;
 }
-.login-sec h2:after{
+
+.login-sec h2:after
+{
     content:" "; 
     width:100px; 
     height:5px; 
@@ -209,22 +262,30 @@ padding : 50px 0;
     margin-left:auto;
     margin-right:auto;
 }
-.btn-login{
+
+.btn-login
+{
     background: #DE6262; 
     color:#fff; 
     font-weight:600;
 }
-.banner-text{
+
+.banner-text
+{
     width:70%; 
     position:absolute; 
     bottom:40px; 
     padding-left:20px;
 }
-.banner-text h2{
+
+.banner-text h2
+{
     color:#fff; 
     font-weight:600;
 }
-.banner-text h2:after{
+
+.banner-text h2:after
+{
     content:" "; 
     width:100px; 
     height:5px; 
@@ -233,55 +294,88 @@ padding : 50px 0;
     margin-top:20px; 
     border-radius:3px;
 }
-.banner-text p{
+
+.banner-text p
+{
     color:#fff;
 }
-.btn.btn-login.float-right{
+
+.btn.btn-login.float-right
+{
     margin-top:15px;
 }
 
-/* DASHBOARD admin */
-img.dash {
+/* Tableau de bord admin
+---------------------- */
+
+img.dash 
+{
     color:white;
 }
-.table th{
+
+.table th
+{
     color:#5782AC !important;
 }
 
-/* accueil */
-.news h3{
+/* Accueil
+---------- */
+.card
+{
+    width: 28%;
+}
+
+.news h3
+{
     font-size:1.2em;
-    background-color:teal;
-    color:white;
+    color:DarkSlateGray;
     margin-bottom:0px;
+    font-weight:700;
+    line-height: 1.6;
 }
-.news a{
-    color:black;
+
+.news a
+{
+    color:DarkCyan;
 }
-.news a:hover{
-    color:greenyellow;
+
+.news a:hover
+{
+    color:DarkKhaki;
 }
-#logo{
-    width:100%;
+
+#logo
+{
+    width:30%;
 }
-#imgAccueil{
+
+#imgAccueil
+{
     width:100%;
     height:450px;
     z-index:2;
     border-radius:5px;
 }
-#alaska{
+
+#alaska
+{
     color:#5782AC;
     font-weight:bold;
 }
 
-/* Page storyJean */
-span.text-muted{
+/* Page Histoire Jean Forteroche
+----------------------------- */
+
+span.text-muted
+{
     color:#5782AC !important;
 }
 
-/* Footer */
-#footer{
+/* Footer
+-------- */
+
+#footer
+{
     background-color:#D6D9D9;
 }
 

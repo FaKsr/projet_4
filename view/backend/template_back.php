@@ -63,11 +63,9 @@
     <body>
       
 
-    <!-- <main role="main" class="container">-->
-       <div class="jumbotron jumbotron-fluid">
+    <main role="main" class="container">
         <div class="container">
         <?= $content ?> 
-        </div>
         </div>
     </main> 
 

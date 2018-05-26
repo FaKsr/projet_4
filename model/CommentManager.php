@@ -1,7 +1,7 @@
 <?php
 
 //Class CommentManager gère les commentaires
-require_once("model/Manager.php");
+
 
 class CommentManager extends Manager
 {
@@ -13,6 +13,16 @@ class CommentManager extends Manager
         $comments->execute(array($postId));
 
         return $comments;
+    }
+
+    // Renvoie les commentaires signalés
+    public function getCommentsSignales($postId)
+    {
+        $db = $this->dbConnect();
+        $signales = $db->prepare('SELECT id, author, comment, DATE_FORMAT(comment_date, \'%d/%m/%Y à %Hh%imin%ss\') AS comment_date_fr FROM comments WHERE post_id = ? AND reported>3 ORDER BY comment_date DESC');
+        $signales->execute(array($postId));
+
+        return $signales;
     }
 
     //méthode envoie les données dans la bdd pour enregistrer les commentaires
@@ -37,6 +47,13 @@ class CommentManager extends Manager
         return $reports;
     }
 
-
+    // supprimer un episode
+    public function deleteCom($deleteCom)
+    {
+        $db = $this->dbConnect();
+        $signales = $db->prepare("DELETE FROM comments WHERE id=?");
+        $signales->execute(array($deleteCom));
+        
+    }
 
 }

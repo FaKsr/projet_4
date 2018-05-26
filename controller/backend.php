@@ -16,12 +16,26 @@ function listEpisods()
 function episod()
 {
     $postManager = new PostManager();
+    // $commentManager = new CommentManager();
+
+    $post = $postManager->getPost($_GET['id']);
+    // $comments = $commentManager->getComments($_GET['id']);
+
+    require('view/backend/editPostView.php');
+}
+
+// Liste commentaire selon un episode
+function listCom(){
+
+    $postManager = new PostManager();
     $commentManager = new CommentManager();
 
     $post = $postManager->getPost($_GET['id']);
     $comments = $commentManager->getComments($_GET['id']);
+    $signales = $commentManager->getCommentsSignales($_GET['id']);
 
-    require('view/backend/editPostView.php');
+    require('view/backend/listComView.php');
+    
 }
 
 //Ajouter des commmentaires
@@ -142,19 +156,29 @@ function createPost($title, $texte, $id_ep)
 // Supprimer un chapitre
 function deletePost($deletePost)
 {
-    $deletePost= $_GET['id'];
     $postManager = new PostManager();
-    $post = $postManager->deletePost($_GET['id']);
+    $post = $postManager->deletePost($deletePost);
 
     header('Location: admin.php?action=listPosts' .$postId);
 }
 
 //Modifier un chapitre
-function updatePost($title, $texte, $id_ep)
+function updatePost($title, $texte, $id_ep, $id)
 {
     $postManager = new PostManager();
-    $post = $postManager->updatePost($title, $texte, $id_ep);
+    $post = $postManager->updatePost($title, $texte, $id_ep, $id);
 
-    require('view/backend/adminPostView.php');
+    header('Location: admin.php?action=listPosts');
+}
+
+//Supprimer un commentaire signale
+function deleteComSign($deleteCom, $postId)
+{
+    
+    $commentManager = new CommentManager();
+    $sign = $commentManager->deleteCom($deleteCom);
+
+    header('Location: admin.php?action=comPost&id='. $postId);
+
 }
 

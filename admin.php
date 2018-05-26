@@ -7,52 +7,53 @@ require_once('controller/backend.php');
 
 try {
     if (isset($_GET['action'])) {
-        
         if ($_GET['action'] == 'connexion') {
             connect();
         }
         if (isset($_SESSION['admin']) and $_SESSION['admin']) {
             if ($_GET['action'] == 'listPosts') {
                 listEpisods();
-            }
-            elseif ($_GET['action'] == 'post') {
+            } elseif ($_GET['action'] == 'post') {
                 if (isset($_GET['id']) && $_GET['id'] > 0) {
                     episod();
                 } else {
                     throw new Exception(' Aucun identifiant de billet envoyé');
                 }
-            } 
-            elseif ($_GET['action'] == 'login') {
+            } elseif ($_GET['action'] == 'login') {
                 login();
-            }
-             elseif ($_GET['action'] == 'switchMpd') {
+            } elseif ($_GET['action'] == 'switchMpd') {
                 changeMdp();
-            } 
-            elseif ($_GET['action'] == 'deconnexion') {
+            } elseif ($_GET['action'] == 'deconnexion') {
                 deconnect();
-            } 
-            elseif ($_GET['action'] == 'edit') {
+            } elseif ($_GET['action'] == 'edit') {
                 editPost();
-            } 
-            elseif ($_GET['action'] == 'createPost') {
+            } elseif ($_GET['action'] == 'createPost') {
                 $title = $_POST['title'];
                 $texte = $_POST['texte'];
                 $id_ep = $_POST['id_ep'];
 
-                if(!empty($title) && !empty($texte) && !empty($id_ep )){
+                if (!empty($title) && !empty($texte) && !empty($id_ep)) {
                     createPost($title, $texte, $id_ep);
-                }
-                else{
+                } else {
                     throw new Exception('Erreur');
                 }
-            }
-            elseif($_GET['action'] == 'deletePost'){
-                deletePost($deletePost);
-            }
-            elseif($_GET['action'] == 'updatePost'){
-                if (isset($_GET['id']) && $_GET['id'] > 0){
-                    episod();
+            } elseif ($_GET['action'] == 'deletePost') {
+                deletePost($_GET['id']);
+            } elseif ($_GET['action'] == 'modifierPost') {
+                episod();
+            } elseif ($_GET['action'] == 'updatePost') {
+                $title = $_POST['title'];
+                $texte = $_POST['texte'];
+                $id_ep = $_POST['id_ep'];
+                $id = $_GET['id'];
+
+                updatePost($title, $texte, $id_ep, $id);
+            } elseif ($_GET['action'] == 'comPost') {
+                if (isset($_GET['id']) && $_GET['id'] > 0) {
+                    listCom();
                 }
+            } elseif ($_GET['action'] == 'deleteCom') {
+                deleteComSign($_GET['id'], $_GET['postId']);
             }
         } // fin de if $_SESSION
         else {
