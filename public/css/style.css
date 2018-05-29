@@ -75,16 +75,6 @@ label
     padding-bottom: 10px;
 }
 
-input#author.form-control
-{
-    width:20%;
-}
-
-textarea#comment.form-control
-{
-    width:30%;
-}
-
 #butForm
 {
     margin-top:5px;
@@ -194,7 +184,7 @@ form
     background: linear-gradient(to bottom, #FFB88C, #DE6262); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     float:left;
     width:100%;
-    padding : 50px 0;
+    /* padding : 50px 0; */
 }
 
 .banner-sec img
@@ -244,7 +234,6 @@ form
 
 .login-sec h2
 {
-    margin-bottom:30px; 
     font-weight:800; 
     font-size:30px; 
     color: #DE6262;
@@ -318,7 +307,7 @@ img.dash
     color:#5782AC !important;
 }
 
-/* Accueil
+/* AccueilAccueil
 ---------- */
 .card
 {
@@ -346,7 +335,8 @@ img.dash
 
 #logo
 {
-    width:30%;
+    width:10%;
+    margin-bottom: 5px;
 }
 
 #imgAccueil
@@ -363,12 +353,27 @@ img.dash
     font-weight:bold;
 }
 
+i
+{
+    color:#e0e0d1;
+    font-weight:bold;
+}
+
+a.nav-link{
+    color:#d4a008 !important;
+}
+
 /* Page Histoire Jean Forteroche
 ----------------------------- */
 
 span.text-muted
 {
-    color:#5782AC !important;
+    font-weight:normal;
+}
+
+h2.featurette-heading{
+    color:#e0e0d1;
+    font-weight:bold;
 }
 
 /* Footer

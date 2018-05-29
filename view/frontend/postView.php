@@ -20,8 +20,9 @@
         </p>
     </div>
 
-<div class="">
-<h2>Commentaires</h2>
+<div class="row">
+<div class="col-3">
+<i> Laissez vos commentaires</i>
 
     <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
         <div class="form-group">
@@ -34,6 +35,7 @@
             <button type="submit" class="btn btn-login float-left">Envoyer</button>
     </form>
 </div>
+</div>
 
 <?php
 while ($comment = $comments->fetch())
@@ -45,7 +47,7 @@ while ($comment = $comments->fetch())
         <strong><?= htmlspecialchars($comment['author']) ?></strong>
     </div>
     <div class="card-body">
-        <h5 class="card-text">le <?= $comment['comment_date_fr'] ?> </h5>
+        <p class="card-text">le <?= $comment['comment_date_fr'] ?> </p>
         <p class="card-text"><?= htmlspecialchars($comment['comment']) ?></p>
         <a href="index.php?action=signaler&amp;id=<?=$comment['id']?>&postId=<?= $post['id'] ?>">signaler ce commentaire</a>
     </div>
