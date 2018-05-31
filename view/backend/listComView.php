@@ -1,43 +1,89 @@
 <title>Tableau de bord de Jean Forteroche</title>
 
 <?php ob_start(); ?>
-<h1>Tableau de bord des commentaires</h1>
 
-<div class="news">
-    <h3>
-        <?= htmlspecialchars($post['numero']) ?>-
-        <?= htmlspecialchars($post['title']) ?>  
-        <em>le <?= htmlspecialchars($post['creation_date_fr']) ?></em>
-    </h3>
+<!-- Encart Titre Chapitre -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4"><?= htmlspecialchars($post['numero']) ?>-
+        <?= htmlspecialchars($post['title']) ?></h1>
+    <p class="lead">le <?= htmlspecialchars($post['creation_date_fr']) ?></p>
+  </div>
 </div>
 
-<h2>Tous les commentaires signalés plus de 3 fois</h2>
-<?php
-while ($signale = $signales->fetch())
-{
-?>
-    <p><strong><?= htmlspecialchars($signale['author']) ?></strong> le <?= $signale['comment_date_fr'] ?> 
-    <a href="admin.php?action=deleteCom&amp;id=<?=$signale['id']?>&postId=<?= $post['id'] ?>">supprimer</a></p>
-    <p><?= htmlspecialchars($signale['comment']) ?></p>
-    
+<!-- Commentaires signales -->
+<div class="table-responsive-sm pb-2">
+<table class="table table-light table-hover">
+<thead class="thead-light">
+    <tr>
+    <th>Auteur</th>
+    <th>Date</th>
+    <th>Commentaires signalés</th>
+    <th>Supprimer</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php
+while ($signale = $signales->fetch()) {
+    ?>
+    <tr>
+    <td>
+    <strong><?= htmlspecialchars($signale['author']) ?></strong>
+    </td>
+    <td>
+    le <?= htmlspecialchars($signale['comment_date_fr']) ?>
+    </td>
+    <td class="align-middle">
+    <?= htmlspecialchars($signale['comment']) ?>
+    </td>
+    <td>
+    <a href="admin.php?action=deleteCom&amp;id=<?=$signale['id']?>&postId=<?= $post['id'] ?>"><img class="dash"  src="./open-iconic/png/delete-2x.png" alt="suppression commentaire"></a>
+    </td>
+    </tr>
 <?php
 }
-?>
+$signales->closeCursor();
+?>   
+</tbody>
+</table>
+</div>
 
-<h2>Tous les commentaires</h2>
+<!-- Tous les commentaires -->
+<div class="table-responsive-sm pb-2">
+<table class="table table-light table-hover">
+    <thead class="thead-light">
+    <tr>
+    <th>Auteur</th>
+    <th>Date</th>
+    <th>Commentaires</th>
+    </tr>
+    </thead>
+    <tbody>
 
-<?php
-while ($comment = $comments->fetch())
-{
-?>
-    <p><strong><?= htmlspecialchars($comment['author']) ?></strong> le <?= $comment['comment_date_fr'] ?> 
-    <p><?= htmlspecialchars($comment['comment']) ?></p>
-    
+    <?php
+while ($comment = $comments->fetch()) {
+    ?>
+
+    <tr>
+    <td>
+    <strong><?= htmlspecialchars($comment['author']) ?>
+    </td>
+    <td>
+    le </strong> le <?= $comment['comment_date_fr'] ?> 
+    </td>
+    <td>
+    <?= htmlspecialchars($comment['comment']) ?>
+    </td>
+    </tr>
+
 <?php
 }
-?>
+$comments->closeCursor();
+?>   
 
-
+</tbody>
+</table>
+</div>
 
 <?php $content = ob_get_clean(); ?>
 

@@ -2,7 +2,7 @@
 <html>
     <head>
 
-        <title>Admin Jean</title>  
+        <title>Tableau de bord de Jean Forteroche</title>  
         
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -33,7 +33,7 @@
 
     <header>
 
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-justify-content-right">
             <a class="navbar-brand" href="admin.php?action=login">Dashboard</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -44,13 +44,13 @@
                     <a class="nav-link" href="index.php?action=accueil">Accueil du blog<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="admin.php?action=switchMpd">Changer de mot de passe</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link" href="admin.php?action=edit">Ecrire un épisode</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php?action=listPosts">Gérer les chapitres</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.php?action=switchMpd">Changer de mot de passe</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="admin.php?action=deconnexion">Déconnexion</a>
@@ -61,8 +61,7 @@
     </header>
   
     <body>
-      
-
+    <!-- Content -->
     <main role="main" class="container">
         <div class="container">
         <?= $content ?> 
@@ -70,7 +69,6 @@
     </main> 
 
         <!-- Footer -->
-
         <footer class="footer">
             <div id="footer" class="container">
             <span class="text-muted">Kercode &copy2018 Jean Forteroche | Blog</a></span>

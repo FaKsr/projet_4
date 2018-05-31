@@ -32,7 +32,8 @@
 
     <header>
     <body>
-
+    
+    <!-- Content -->
     <main role="main" class="container">
      
         <?= $content ?> 

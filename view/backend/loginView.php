@@ -28,7 +28,7 @@
 
 		<div class="col-md-8 banner-sec">
 
-      <img class="d-block img-fluid" src="./public/images/vintage.jpg" alt="">
+      <img class="d-block img-fluid" src="./public/images/vintage.jpg" alt="carte vintage">
      
 		</div>
 	</div>

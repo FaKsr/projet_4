@@ -165,6 +165,7 @@ form
     width: 90%;
     padding-bottom: 15px;
     padding-top:15px;
+    background-image:url(../images/vintage-concrete.png);
 }
 
 #contenu h1
@@ -307,6 +308,28 @@ img.dash
     color:#5782AC !important;
 }
 
+.lead
+{
+    text-align: center;
+}
+#infoTabl
+{
+    margin: 0 10% 0 10%;
+    font-size: larger;
+}
+
+a.btn.btn-info.btn-lg
+{
+    margin:5px;
+}
+
+.jumbotron
+{
+    background-image:url(../images/wallpaperBook.png);
+    background-repeat:no-repeat;
+}
+  
+
 /* AccueilAccueil
 ---------- */
 .card
@@ -374,6 +397,11 @@ span.text-muted
 h2.featurette-heading{
     color:#e0e0d1;
     font-weight:bold;
+}
+
+#story
+{
+    text-align:left;
 }
 
 /* Footer

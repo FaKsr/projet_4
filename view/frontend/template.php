@@ -33,28 +33,30 @@
 
     <header>
 
+        <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#"> <img id="logo" src="./public/images/logo.svg" alt="logo de Jean Forteroche"/><i> Jean Forteroche</i></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-            <ul class="navbar-nav">
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?action=accueil">Accueil</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?action=tell">Mon histoire</a>
-            </li>
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?action=listPosts">Episodes</a>
-            </li>
-            </ul>
-        </div>
-</nav>
+            <a class="navbar-brand" href="#"> <img id="logo" src="./public/images/logo.svg" alt="logo de Jean Forteroche"/><i> Jean Forteroche</i></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                <ul class="navbar-nav">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?action=accueil">Accueil</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?action=tell">Mon histoire</a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.php?action=listPosts">Episodes</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
 
     <body>
 
+    <!-- Content -->
     <div id="contenu" class="container">
             <?= $content ?>
     </div>

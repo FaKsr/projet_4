@@ -3,7 +3,7 @@ spl_autoload_register(function ($class) {
     require_once('model/'.$class.'.php');
 });
 
-// Récupère les chapitres
+// Liste les chapitres
 function listEpisods()
 {
     $postManager = new PostManager(); //Création d'un objet, instancie la classe
@@ -16,17 +16,14 @@ function listEpisods()
 function episod()
 {
     $postManager = new PostManager();
-    // $commentManager = new CommentManager();
-
     $post = $postManager->getPost($_GET['id']);
-    // $comments = $commentManager->getComments($_GET['id']);
 
     require('view/backend/editPostView.php');
 }
 
-// Liste commentaire selon un episode
-function listCom(){
-
+// Liste commentaire selon un chapitre
+function listCom()
+{
     $postManager = new PostManager();
     $commentManager = new CommentManager();
 
@@ -35,10 +32,9 @@ function listCom(){
     $signales = $commentManager->getCommentsSignales($_GET['id']);
 
     require('view/backend/listComView.php');
-    
 }
 
-//Ajouter des commmentaires
+// Ajouter des commmentaires
 function addComment($postId, $author, $comment)
 {
     $commentManager = new CommentManager();
@@ -52,7 +48,7 @@ function addComment($postId, $author, $comment)
     }
 }
 
-//Connexion admin
+// Connexion admin
 function connect()
 {
     if (!empty($_POST['pseudo']) and !empty($_POST['password'])) {
@@ -134,7 +130,7 @@ function deconnect()
     require('view/frontend/accueil.php');
 }
 
-// View Editer
+// Vue éditer
 function editPost()
 {
     $post['title']="";
@@ -162,7 +158,7 @@ function deletePost($deletePost)
     header('Location: admin.php?action=listPosts' .$postId);
 }
 
-//Modifier un chapitre
+// Modifier un chapitre
 function updatePost($title, $texte, $id_ep, $id)
 {
     $postManager = new PostManager();
@@ -171,14 +167,11 @@ function updatePost($title, $texte, $id_ep, $id)
     header('Location: admin.php?action=listPosts');
 }
 
-//Supprimer un commentaire signale
+// Supprimer un commentaire signale
 function deleteComSign($deleteCom, $postId)
 {
-    
     $commentManager = new CommentManager();
     $sign = $commentManager->deleteCom($deleteCom);
 
     header('Location: admin.php?action=comPost&id='. $postId);
-
 }
-

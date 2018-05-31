@@ -2,6 +2,7 @@
 
 <?php ob_start(); ?>
 
+<!-- Titre du Chapitre -->
 <div class="containter">
     <h1>Un billet simple pour l'Alaska</h1>
     <div class="news">
@@ -10,16 +11,19 @@
         <?= htmlspecialchars($post['title']) ?>  
         <em>le <?= htmlspecialchars($post['creation_date_fr']) ?></em>
         </h3>
-    
+
+    <!-- Content du Chapitre -->
     <div class="">
         <?= $post['content'] ?>
     </div>
 
+        <!-- Lien vers la liste des chapitres -->
         <p>
-        <a href="index.php?action=listPosts">Retour à la liste des billets</a>
+        <a href="index.php?action=listPosts">Retour à la liste des chapitres</a>
         </p>
     </div>
 
+<!-- Commentaires -->
 <div class="row">
 <div class="col-3">
 <i> Laissez vos commentaires</i>
@@ -36,11 +40,10 @@
     </form>
 </div>
 </div>
-
+<!-- Affichage des commentaires -->
 <?php
-while ($comment = $comments->fetch())
-{
-?>
+while ($comment = $comments->fetch()) {
+    ?>
 <div class="row">
 <div class="card">
     <div class="card-header bg-info">
@@ -53,12 +56,13 @@ while ($comment = $comments->fetch())
     </div>
 </div>
 </div>
-
     
 <?php
 }
 ?>
+
 </div>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

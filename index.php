@@ -3,12 +3,12 @@
 // On charge le controller, pour que les fonctions soient en mémoire
 require_once('controller/frontend.php');
 
+
 try {
     if (isset($_GET['action'])) {
-        if($_GET['action'] == 'accueil') {
+        if ($_GET['action'] == 'accueil') {
             showAccueil();
-        }
-        elseif ($_GET['action'] == 'listPosts') {
+        } elseif ($_GET['action'] == 'listPosts') {
             listPosts();
         } elseif ($_GET['action'] == 'post') {
             if (isset($_GET['id']) && $_GET['id'] > 0) {
@@ -18,7 +18,7 @@ try {
             }
         }// fin de elseif post
         elseif ($_GET['action'] == 'addComment') {
-             if (isset($_GET['id']) && $_GET['id'] > 0) {
+            if (isset($_GET['id']) && $_GET['id'] > 0) {
                 //contrôle de saisie des champs
                 if (!empty($_POST['author']) && !empty($_POST['comment'])) {
                     $author = htmlspecialchars($_POST['author']);
@@ -33,10 +33,9 @@ try {
         }// fin de eslseif addComment
         elseif ($_GET['action'] == 'signaler') {
             reportComment($_GET['id'], $_GET['postId']);
+        } elseif ($_GET['action'] == 'tell') {
+            tellStory();
         }
-    elseif ($_GET['action'] == 'tell') {
-        tellStory();
-    } 
     } // fin de if
     
     else {
@@ -48,5 +47,4 @@ try {
 catch (Exception $e) {
     $errorMessage = $e->getMessage();
     echo $errorMessage;
-    // require_once('view/frontend/errorView.php');
 }

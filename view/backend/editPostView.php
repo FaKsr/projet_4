@@ -1,8 +1,8 @@
-
 <title>Editer un épisode</title>
 
 <?php ob_start(); ?>
 
+<!-- Script TinyMCE -->
 <head>
     <script type="text/javascript" src="./public/js/tinymce/tinymce.js"></script>
         <script type="text/javascript">
@@ -14,9 +14,10 @@
         </script>
 </head>
 
+<!-- Editeur chapitres -->
 <?php
-if ($_GET['action'] == 'modifierPost'){
-?>
+if ($_GET['action'] == 'modifierPost') {
+    ?>
     <form action="admin.php?action=updatePost&id=<?= $_GET['id'] ?>" method="post" name="formulaire" id="formulaire">
             <label for="title"></label>
             <input required type="text" id="title_ep" name="title" placeholder="Titre de le l'épisode" value="<?= $post['title'] ?>">
@@ -27,8 +28,9 @@ if ($_GET['action'] == 'modifierPost'){
             <textarea id="texte" name="texte" style="with: 60%;" rows="15"><?= $post['content'] ?></textarea>
             <input title="Modification de votre billet" name="send" type="submit" value="Modifier un épisode" id="butForm" class="btn btn-warning"/>
             </form>
-<?php }
-    else{ ?>
+<?php
+} else {
+        ?>
 
     <form action="admin.php?action=createPost" method="post" name="formulaire" id="formulaire">
     <label for="title"></label>
@@ -40,10 +42,10 @@ if ($_GET['action'] == 'modifierPost'){
     <textarea id="texte" name="texte" style="with: 60%;" rows="15"></textarea>
     <input title="Confirmation d'un nouveau billet" name="send" type="submit" value="Créer un épisode" id="butForm" class="btn btn-primary"/>
     </form>
-<?php }
+
+<?php
+    }
 ?>
-
-
 
 <?php $content = ob_get_clean(); ?>
 

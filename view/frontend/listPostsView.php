@@ -1,12 +1,14 @@
 <title>Liste des épisodes d'un billet simple pour l'Alaska</title>
 
 <?php ob_start(); ?>
+
+<!-- Listing des chapitres -->
 <h1>Un billet simple pour l'Alaska</h1>
 
 <?php
-while ($data = $posts->fetch())
-{
-?>
+while ($data = $posts->fetch()) {
+    ?>
+
     <div class="news">
         <h3>
             Episode <?= htmlspecialchars($data['numero']) ?> -
@@ -21,6 +23,7 @@ while ($data = $posts->fetch())
 }
 $posts->closeCursor();
 ?>
+
 <?php $content = ob_get_clean(); ?>
 
 <?php require('template.php'); ?>

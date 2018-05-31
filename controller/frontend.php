@@ -5,7 +5,7 @@ spl_autoload_register(function ($class) {
     require_once('model/'.$class.'.php');
 });
 
-// Récupère les chapitres
+// Liste les chapitres
 function listPosts()
 {
     $postManager = new PostManager(); //Création d'un objet, instancie la classe
@@ -40,7 +40,7 @@ function addComment($postId, $author, $comment)
     }
 }
 
-//fonction signaler les commentaires
+// Signaler les commentaires
 function reportComment($commentId, $postId)
 {
     $reportCom = new CommentManager();
@@ -49,13 +49,13 @@ function reportComment($commentId, $postId)
     header('Location: index.php?action=post&id=' . $postId);
 }
 
-//fonction afficher page mon histoire
+// Afficher page mon histoire
 function tellStory()
 {
     require('view/frontend/storyJean.php');
 }
 
-//fonction afficher page accueil
+// Afficher page accueil
 function showAccueil()
 {
     require('view/frontend/accueil.php');

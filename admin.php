@@ -68,5 +68,4 @@ try {
 //récupère le message d'erreur transmis et affiche le message
 catch (Exception $e) {
     $errorMessage = $e->getMessage();
-    // require 'view/backend/errorView.php';
 }
