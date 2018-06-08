@@ -1,30 +1,34 @@
-<?php $title = 'changement de mot de passe'; ?>
+<?php
+ob_start();
+$title = "Paramètre";
+?>
 
-<?php ob_start(); ?>
-<div class="row">
-    <div class="col-10">
-        <h2>changement de mot de passe</h2>
-        <p><?php echo ($messageError); ?></p>
+<!-- Encart Titre -->
+<div class="jumbotron jumbotron-fluid">
+  <div class="titleAdmin" class="container">
+    <h1 class="display-5">Modifier votre mot de passe</h1>
+    <p class="lead">Modifier vos chapitres, supprimez les et retrouvez les commentaires de vos lecteurs.</p>
+  </div>
+</div>
 
-<form id="formulaire" action="?action=switchMpd" method="post" >
+<!-- Formulaire mdp -->
+<form action="?action=switchMpd" method="post">
     <div class="form-group">
-        <label>Ancien mot de passe</label>
-        <input type="password" class="formM" class="form-control" name="actualMPD"/>
+        <input type="password" class="form-control" name="actualMPD" placeholder="Ancien mot de passe">
     </div>
     <div class="form-group">
-        <label>Nouveau mot de passe</label>
-        <input type="password" class="formM" class="form-control" name="mpd"/>
+        <input type="password" class="form-control" name="mpd" placeholder="Nouveau mot de passe">
     </div>
     <div class="form-group">
-        <label>Confirmer nouveau mot de passe</label>
-        <input type="password" class="formM" class="form-control" name="mpdConfirm"/>
+        <input type="password" class="form-control" name="mpdConfirm" placeholder="Confirmer nouveau mot de passe">
     </div>
-        <input type="submit" id="bouton" name="Envoyer" value="changer votre mot de passe" class="btn btn-warning"/>
-
+        <input type="submit" id="bouton" name="Envoyer" value="changer votre mot de passe" class="btn btn-warning">
 </form>
-</div>
-</div>
 
-<?php $content = ob_get_clean(); ?>
+<?php
+$content = ob_get_clean();
+?>
 
-<?php require('template_back.php'); ?>
+<?php
+require('template_back.php');
+?>

@@ -1,11 +1,13 @@
-<?php $title = 'Jean Forteroche, écrivain et acteur'; ?>
+<?php
+$title = "Connexion";
+?>
 
 <section class="login-block">
     <div class="container">
-	    <div class="row">
-		    <div class="col-md-4 login-sec">
+        <div class="row">
+            <div class="col-md-4 login-sec">
           <h2 class="text-center">Ma machine à écrire</h2>
-          <h3>Tous vos textes en un seul endroit</h3>   
+          <h3>Tous vos textes en un seul endroit</h3>  
 
           <form action="?action=connexion" class="login-form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
 
@@ -26,15 +28,19 @@
 
           </div>
 
-		<div class="col-md-8 banner-sec">
+        <div class="col-md-8 banner-sec">
 
       <img class="d-block img-fluid" src="./public/images/vintage.jpg" alt="carte vintage">
-     
-		</div>
-	</div>
+    
+        </div>
+    </div>
 </div>
 </section>
 
-<?php $content = ob_get_clean(); ?>
+<?php
+$content = ob_get_clean();
+?>
 
-<?php require('template_login.php'); ?>
+<?php
+require('template_login.php');
+?> 

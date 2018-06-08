@@ -1,19 +1,21 @@
-<title>Liste des épisodes d'un billet simple pour l'Alaska</title>
-
-<?php ob_start(); ?>
+<?php
+ob_start();
+$title = "Liste des épisodes";
+?>
 
 <!-- Listing des chapitres -->
-<h1>Un billet simple pour l'Alaska</h1>
+
+    <h1>Un billet simple pour l'Alaska</h1>
 
 <?php
 while ($data = $posts->fetch()) {
-    ?>
+?>
 
     <div class="news">
-        <h3>
+        <h3 class="texte-center">
             Episode <?= htmlspecialchars($data['numero']) ?> -
             <?= htmlspecialchars($data['title']) ?>
-            <em>le <?= htmlspecialchars($data['creation_date_fr']) ?></em>
+           <em>le <?= htmlspecialchars($data['creation_date_fr']) ?></em>
             </br>
             <a href="index.php?action=post&amp;id=<?= $data['id'] ?>">Lire la suite</a>
         </h3>
@@ -24,6 +26,10 @@ while ($data = $posts->fetch()) {
 $posts->closeCursor();
 ?>
 
-<?php $content = ob_get_clean(); ?>
+<?php
+$content = ob_get_clean();
+?>
 
-<?php require('template.php'); ?>
+<?php
+require('template.php');
+?>

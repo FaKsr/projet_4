@@ -1,10 +1,13 @@
-<title>Les épisodes d'un Billet simple pour l'Alaska</title> 
 
-<?php ob_start(); ?>
+<?php
+ob_start();
+$title = "Episode d'un Billet simple pour l'Alaska";
+?>
 
 <!-- Titre du Chapitre -->
-<div class="containter">
-    <h1>Un billet simple pour l'Alaska</h1>
+<h1>Un billet simple pour l'Alaska</h1>
+
+<div class="row">
     <div class="news">
         <h3>
         <?= htmlspecialchars($post['numero']) ?>-
@@ -15,54 +18,61 @@
     <!-- Content du Chapitre -->
     <div class="">
         <?= $post['content'] ?>
-    </div>
+   </div>
 
         <!-- Lien vers la liste des chapitres -->
         <p>
         <a href="index.php?action=listPosts">Retour à la liste des chapitres</a>
         </p>
     </div>
+</div>
 
 <!-- Commentaires -->
-<div class="row">
-<div class="col-3">
-<i> Laissez vos commentaires</i>
-
+<div class="news">
+    <h4> Laissez vos commentaires</h4>    
     <form action="index.php?action=addComment&amp;id=<?= $post['id'] ?>" method="post">
-        <div class="form-group">
+        <div class="col-md-10">
+        <div class="panel panel-info">
             <input type="text" class="form-control" id="author" name="author" placeholder="Auteur">
+        <div class="panel-body">
+            <textarea id="comment" name="comment" placeholder="Ecrivez votre commentaire !" class="form-control"></textarea>
+            <button class="btn btn-primary pull-right" type="submit">Envoyer</button>
+
+  </div>
+        </div>
         </div>
 
-        <div class="form-group">
-            <textarea id="comment" name="comment" class="form-control" placeholder="Votre commentaire"></textarea>
-        </div>
-            <button type="submit" class="btn btn-login float-left">Envoyer</button>
     </form>
+      
 </div>
-</div>
+<br>
+<br />
 <!-- Affichage des commentaires -->
+  <div class="d-flex flex-wrap align-content-start">
 <?php
 while ($comment = $comments->fetch()) {
-    ?>
-<div class="row">
-<div class="card">
-    <div class="card-header bg-info">
-        <strong><?= htmlspecialchars($comment['author']) ?></strong>
-    </div>
-    <div class="card-body">
-        <p class="card-text">le <?= $comment['comment_date_fr'] ?> </p>
-        <p class="card-text"><?= htmlspecialchars($comment['comment']) ?></p>
-        <a href="index.php?action=signaler&amp;id=<?=$comment['id']?>&postId=<?= $post['id'] ?>">signaler ce commentaire</a>
-    </div>
-</div>
-</div>
-    
-<?php
+?>
+ 
+         <div class="media comment-box mr-auto">
+            <div class="media-body">
+                <h4 class="media-heading"><?= htmlspecialchars($comment['author']) ?></h4>
+                <p><?= htmlspecialchars($comment['comment_date_fr']) ?></p> 
+                <p class="commentP"><?= htmlspecialchars($comment['comment']) ?><br /><a href="index.php?action=signaler&amp;id=<?= $comment['id'] ?>&postId=<?= $post['id'] ?>">signaler</a></p>
+              </div>
+
+       </div>
+        
+        <?php
 }
+?> 
+
+      
+</div>
+
+<?php
+$content = ob_get_clean();
 ?>
 
-</div>
-
-<?php $content = ob_get_clean(); ?>
-
-<?php require('template.php'); ?>
+<?php
+require('template.php');
+?>

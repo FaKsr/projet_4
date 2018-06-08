@@ -1,12 +1,13 @@
-<title>Tableau de bord de Jean Forteroche</title>
-
-<?php ob_start(); ?>
+<?php
+ob_start();
+$title = "Les Chapitres";
+?>
 
 <!-- Encart Titre -->
 <div class="jumbotron jumbotron-fluid">
-  <div class="container">
-    <h1 class="display-4">Tableau de bord des Chapitres</h1>
-    <p class="lead">Modifiés vos épisodes, supprimés les et retrouvez les commentaires de vos lecteurs.</p>
+  <div class="titleAdmin" class="container">
+    <h1 class="display-5">Chapitres</h1>
+    <p class="lead">Modifier vos chapitres, supprimez les et retrouvez les commentaires de vos lecteurs.</p>
   </div>
 </div>
 
@@ -25,34 +26,38 @@
     <tbody>
     <?php
 while ($data = $posts->fetch()) {
-    ?>
-    <tr>
+?>
+   <tr>
     <td>
     <?= htmlspecialchars($data['numero']) ?> - <?= htmlspecialchars($data['title']) ?>
-    </td>
+   </td>
     <td>
     le <?= htmlspecialchars($data['creation_date_fr']) ?>
+   </td>
+    <td align="center" class="align-middle">
+    <a href="admin.php?action=modifierPost&amp;id=<?= $data['id'] ?>"><img class="center-block" class="dash" src="./public/images/pencil-2x.png" alt="modification"></a>
     </td>
-    <td class="align-middle">
-    <a href="admin.php?action=modifierPost&amp;id=<?= $data['id'] ?>"><img class="center-block" class="dash" src="./open-iconic/png/pencil-2x.png" alt="modification"></a>
+    <td align="center" class="align-middle">
+    <a href="admin.php?action=deletePost&amp;id=<?= $data['id'] ?>"><img class="dash"  src="./public/images/delete-2x.png" alt="suppression"></a>
     </td>
-    <td class="align-middle">
-    <a href="admin.php?action=deletePost&amp;id=<?= $data['id'] ?>"><img class="dash"  src="./open-iconic/png/delete-2x.png" alt="suppression"></a>
-    </td>
-    <td class="align-middle">
-    <a href="admin.php?action=comPost&amp;id=<?= $data['id'] ?>"><img class="dash"  src="./open-iconic/png/list-2x.png" alt="commentaires"></a>
+    <td align="center" class="align-middle">
+    <a href="admin.php?action=comPost&amp;id=<?= $data['id'] ?>"><img class="dash"  src="./public/images//list-2x.png" alt="commentaires"></a>
     </td>
     </tr>
 
 <?php
 }
 $posts->closeCursor();
-?>   
+?>  
 
 </tbody>
 </table>
 </div>
 
-<?php $content = ob_get_clean(); ?>
+<?php
+$content = ob_get_clean();
+?>
 
-<?php require('template_back.php'); ?> 
+<?php
+require('template_back.php');
+?>

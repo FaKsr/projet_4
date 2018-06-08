@@ -2,8 +2,8 @@
 <html>
     <head>
 
-        <title><?= $title ?></title>  
-        
+        <title><?= $title ?></title>
+
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -31,11 +31,13 @@
 
     </head>
 
+<body>
+
     <header>
 
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <a class="navbar-brand" href="#"> <img id="logo" src="./public/images/logo.svg" alt="logo de Jean Forteroche"/><i> Jean Forteroche</i></a>
+            <a class="navbar-brand" href="index.php?action=accueil"> <img id="logo" src="./public/images/logo.svg" alt="logo de Jean Forteroche"/><i> Jean Forteroche</i></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -54,27 +56,28 @@
             </div>
         </nav>
 
-    <body>
+    </header>
 
     <!-- Content -->
-    <div id="contenu" class="container">
-            <?= $content ?>
-    </div>
-       
+
+    <main role="main">
+        <div  id="contenu" class="container">
+        <?= $content ?> 
+        </div>
+    </main> 
+
         <!-- Footer -->
         <footer class="footer">
-            <div id="footer" class="container bg-dark">
-                <span class="text-muted">Kercode&copy2018  Blog | <a href="admin.php?action=login">Jean Forteroche</a></span> </span>
+            <div class="container bg-dark">
+                <span class="text-muted">Kercode&copy;2018  Blog | <a href="admin.php?action=login">Jean Forteroche</a></span>
             </div>
         </footer>
 
-    </body>
-
     <!-- Script Jquery -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.1.1.slim.min.js" integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n" crossorigin="anonymous"></script>
     <!-- Script Popper -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <!-- Script Bootstrap -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-
+</body>
 </html>
